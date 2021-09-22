@@ -8,17 +8,12 @@ import {
 
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-const Home = ({navigation}) => {
-
-  const loadScene = () => {
-    navigation.navigate('About');
-  }
+const Account = ({navigation}) => {
 
   return (
     <SafeAreaView>
       <View style={styles.sectionContainer}>
-        <Text style={styles.textStyle}>Home</Text>
-        <Button title="Go to about" onPress={loadScene}/>
+        <Text>Account</Text>
       </View>
     </SafeAreaView>
   );
@@ -29,9 +24,6 @@ const styles = EStyleSheet.create({
     marginTop: 32,
     paddingHorizontal: 24,
   },
-  textStyle: {
-    fontFamily: 'SFUIDisplay-Bold'
-  }
 });
 
-export default Home;
+export default Account;

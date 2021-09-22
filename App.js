@@ -14,13 +14,16 @@ import {
 
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Navigator from './src/navigator/Navigator';
+import { ThemeProvider } from 'react-native-elements';
 
 EStyleSheet.build({});
 
 const App = () => {
 
   return (
-    <Navigator/>
+    <ThemeProvider>
+      <Navigator/>
+    </ThemeProvider>
   );
 };
 
