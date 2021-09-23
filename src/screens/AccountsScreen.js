@@ -3,17 +3,15 @@ import {
   SafeAreaView,
   Text,
   View,
-  Button
 } from 'react-native';
 
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-const Account = ({navigation}) => {
-
+const AccountScreen = ({navigation}) => {
   return (
     <SafeAreaView>
       <View style={styles.sectionContainer}>
-        <Text>Account</Text>
+        <Text>Accounts</Text>
       </View>
     </SafeAreaView>
   );
@@ -26,4 +24,4 @@ const styles = EStyleSheet.create({
   },
 });
 
-export default Account;
+export default AccountScreen;
