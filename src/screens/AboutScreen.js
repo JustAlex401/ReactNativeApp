@@ -1,17 +1,17 @@
 import React from 'react';
 import {
   SafeAreaView,
-  Text,
   View,
 } from 'react-native';
 
 import EStyleSheet from 'react-native-extended-stylesheet';
+import CustomText from '../components/CustomText';
 
 const AboutScreen = ({navigation}) => {
   return (
     <SafeAreaView>
       <View style={styles.sectionContainer}>
-        <Text>About</Text>
+        <CustomText>About</CustomText>
       </View>
     </SafeAreaView>
   );
