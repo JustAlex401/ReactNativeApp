@@ -3,7 +3,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image } from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
+import customStyles from '../../assets/styles';
 import HomeStack from './stack/HomeStack.js';
 import AccountsStack from './stack/AccountsStack.js';
 import GivingStack from './stack/GivingStack.js';
@@ -21,10 +21,10 @@ const Navigator = () => {
           component={HomeStack}
           options={{
             tabBarLabel: 'Home',
-            tabBarActiveTintColor: EStyleSheet.value('$iconColor'),
-            tabBarInactiveTintColor: EStyleSheet.value('$defaultColor'),
+            tabBarActiveTintColor: customStyles.focusedColor,
+            tabBarInactiveTintColor: customStyles.defaultColor,
             tabBarIcon: ({ focused }) => (
-              <Image source={require('../assets/icons/home.png')} style={{ tintColor: focused ? EStyleSheet.value('$iconColor') : EStyleSheet.value('$defaultColor') }} />
+              <Image source={require('../../assets/icons/home.png')} style={{ tintColor: focused ? customStyles.focusedColor : customStyles.defaultColor }} />
             )
           }}  
         />
@@ -33,10 +33,10 @@ const Navigator = () => {
           component={AccountsStack}
           options={{
             tabBarLabel: 'Accounts',
-            tabBarActiveTintColor: EStyleSheet.value('$iconColor'),
-            tabBarInactiveTintColor: EStyleSheet.value('$defaultColor'),
+            tabBarActiveTintColor: customStyles.focusedColor,
+            tabBarInactiveTintColor: customStyles.defaultColor,
             tabBarIcon: ({ focused }) => (
-              <Image source={require('../assets/icons/accounts.png')} style={{ tintColor: focused ? EStyleSheet.value('$iconColor') : EStyleSheet.value('$defaultColor') }} />
+              <Image source={require('../../assets/icons/accounts.png')} style={{ tintColor: focused ? customStyles.focusedColor : customStyles.defaultColor }} />
             )
           }}  
         />
@@ -45,10 +45,10 @@ const Navigator = () => {
           component={GivingStack}
           options={{
             tabBarLabel: 'Giving',
-            tabBarActiveTintColor: EStyleSheet.value('$iconColor'),
-            tabBarInactiveTintColor: EStyleSheet.value('$defaultColor'),
+            tabBarActiveTintColor: customStyles.focusedColor,
+            tabBarInactiveTintColor: customStyles.defaultColor,
             tabBarIcon: ({ focused }) => (
-              <Image source={require('../assets/icons/giving.png')} style={{ tintColor: focused ? EStyleSheet.value('$iconColor') : EStyleSheet.value('$defaultColor') }} />
+              <Image source={require('../../assets/icons/giving.png')} style={{ tintColor: focused ? customStyles.focusedColor : customStyles.defaultColor }} />
             )
           }}  
         />
@@ -57,10 +57,10 @@ const Navigator = () => {
           component={PaymentsStack}
           options={{
             tabBarLabel: 'Payments',
-            tabBarActiveTintColor: EStyleSheet.value('$iconColor'),
-            tabBarInactiveTintColor: EStyleSheet.value('$defaultColor'),
+            tabBarActiveTintColor: customStyles.focusedColor,
+            tabBarInactiveTintColor: customStyles.defaultColor,
             tabBarIcon: ({ focused }) => (
-              <Image source={require('../assets/icons/payment.png')} style={{ tintColor: focused ? EStyleSheet.value('$iconColor') : EStyleSheet.value('$defaultColor') }} />
+              <Image source={require('../../assets/icons/payment.png')} style={{ tintColor: focused ? customStyles.focusedColor : customStyles.defaultColor }} />
             )
           }}  
         />
@@ -69,10 +69,10 @@ const Navigator = () => {
           component={CardsStack}
           options={{
             tabBarLabel: 'Cards',
-            tabBarActiveTintColor: EStyleSheet.value('$iconColor'),
-            tabBarInactiveTintColor: EStyleSheet.value('$defaultColor'),
+            tabBarActiveTintColor: customStyles.focusedColor,
+            tabBarInactiveTintColor: customStyles.defaultColor,
             tabBarIcon: ({ focused }) => (
-              <Image source={require('../assets/icons/cards.png')} style={{ tintColor: focused ? EStyleSheet.value('$iconColor') : EStyleSheet.value('$defaultColor') }} />
+              <Image source={require('../../assets/icons/cards.png')} style={{ tintColor: focused ? customStyles.focusedColor : customStyles.defaultColor }} />
             )
           }}  
         />

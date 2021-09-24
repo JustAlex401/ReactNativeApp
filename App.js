@@ -4,10 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import Navigator from './src/navigation/Navigator';
 import { ThemeProvider } from 'react-native-elements';
 
-EStyleSheet.build({
-  $iconColor: "#FF00FF",
-  $defaultColor: "#8e8e93"
-});
+EStyleSheet.build({});
 
 const App = () => {
   return (
