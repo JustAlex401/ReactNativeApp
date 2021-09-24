@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import PaymentsScreen from '../../screens/PaymentsScreen';
+import PaymentsScreen from '../../screens/payments';
 
 const PaymentsStackElement = createNativeStackNavigator();
 
 export default PaymentsStack = () => {
   return (
-    <PaymentsStackElement.Navigator>
+    <PaymentsStackElement.Navigator screenOptions={{headerShown: false}}>
       <PaymentsStackElement.Screen name="Payments" component={PaymentsScreen} />
     </PaymentsStackElement.Navigator>
   );

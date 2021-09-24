@@ -21,10 +21,10 @@ const Navigator = () => {
           component={HomeStack}
           options={{
             tabBarLabel: 'Home',
-            tabBarActiveTintColor: customStyles.focusedColor,
+            tabBarActiveTintColor: customStyles.themeColor,
             tabBarInactiveTintColor: customStyles.defaultColor,
             tabBarIcon: ({ focused }) => (
-              <Image source={require('../../assets/icons/home.png')} style={{ tintColor: focused ? customStyles.focusedColor : customStyles.defaultColor }} />
+              <Image source={require('../../assets/icons/home.png')} style={{ tintColor: focused ? customStyles.themeColor : customStyles.defaultColor }} />
             )
           }}  
         />
@@ -33,10 +33,10 @@ const Navigator = () => {
           component={AccountsStack}
           options={{
             tabBarLabel: 'Accounts',
-            tabBarActiveTintColor: customStyles.focusedColor,
+            tabBarActiveTintColor: customStyles.themeColor,
             tabBarInactiveTintColor: customStyles.defaultColor,
             tabBarIcon: ({ focused }) => (
-              <Image source={require('../../assets/icons/accounts.png')} style={{ tintColor: focused ? customStyles.focusedColor : customStyles.defaultColor }} />
+              <Image source={require('../../assets/icons/accounts.png')} style={{ tintColor: focused ? customStyles.themeColor : customStyles.defaultColor }} />
             )
           }}  
         />
@@ -45,10 +45,10 @@ const Navigator = () => {
           component={GivingStack}
           options={{
             tabBarLabel: 'Giving',
-            tabBarActiveTintColor: customStyles.focusedColor,
+            tabBarActiveTintColor: customStyles.themeColor,
             tabBarInactiveTintColor: customStyles.defaultColor,
             tabBarIcon: ({ focused }) => (
-              <Image source={require('../../assets/icons/giving.png')} style={{ tintColor: focused ? customStyles.focusedColor : customStyles.defaultColor }} />
+              <Image source={require('../../assets/icons/giving.png')} style={{ tintColor: focused ? customStyles.themeColor : customStyles.defaultColor }} />
             )
           }}  
         />
@@ -57,10 +57,10 @@ const Navigator = () => {
           component={PaymentsStack}
           options={{
             tabBarLabel: 'Payments',
-            tabBarActiveTintColor: customStyles.focusedColor,
+            tabBarActiveTintColor: customStyles.themeColor,
             tabBarInactiveTintColor: customStyles.defaultColor,
             tabBarIcon: ({ focused }) => (
-              <Image source={require('../../assets/icons/payment.png')} style={{ tintColor: focused ? customStyles.focusedColor : customStyles.defaultColor }} />
+              <Image source={require('../../assets/icons/payment.png')} style={{ tintColor: focused ? customStyles.themeColor : customStyles.defaultColor }} />
             )
           }}  
         />
@@ -69,10 +69,10 @@ const Navigator = () => {
           component={CardsStack}
           options={{
             tabBarLabel: 'Cards',
-            tabBarActiveTintColor: customStyles.focusedColor,
+            tabBarActiveTintColor: customStyles.themeColor,
             tabBarInactiveTintColor: customStyles.defaultColor,
             tabBarIcon: ({ focused }) => (
-              <Image source={require('../../assets/icons/cards.png')} style={{ tintColor: focused ? customStyles.focusedColor : customStyles.defaultColor }} />
+              <Image source={require('../../assets/icons/cards.png')} style={{ tintColor: focused ? customStyles.themeColor : customStyles.defaultColor }} />
             )
           }}  
         />

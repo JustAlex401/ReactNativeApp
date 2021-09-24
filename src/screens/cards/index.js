@@ -3,25 +3,24 @@ import {
   SafeAreaView,
   View,
 } from 'react-native';
-
 import EStyleSheet from 'react-native-extended-stylesheet';
-import CustomText from '../components/CustomText';
+import CustomText from '../../components/CustomText';
 
-const AccountScreen = ({navigation}) => {
+const CardsScreen = ({navigation}) => {
   return (
     <SafeAreaView>
       <View style={styles.sectionContainer}>
-        <CustomText>Accounts</CustomText>
+        <CustomText>Coming soon</CustomText>
       </View>
     </SafeAreaView>
-  );
+  )
 };
 
 const styles = EStyleSheet.create({
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
-  },
+  }
 });
 
-export default AccountScreen;
+export default CardsScreen;

@@ -1,4 +1,4 @@
 module.exports = {
-  focusedColor: "#FF00FF",
+  themeColor: "#C71585",
   defaultColor: "#8e8e93"
 }

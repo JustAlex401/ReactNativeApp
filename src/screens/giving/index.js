@@ -2,22 +2,15 @@ import React from 'react';
 import {
   SafeAreaView,
   View,
-  Button
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import CustomText from '../components/CustomText';
+import CustomText from '../../components/CustomText';
 
-const HomeScreen = ({navigation}) => {
-
-  const handlePressBtn = () => {
-    navigation.navigate('About');
-  }
-
+const GivingScreen = ({navigation}) => {
   return (
     <SafeAreaView>
       <View style={styles.sectionContainer}>
-        <CustomText>Home</CustomText>
-        <Button title="Go to about" onPress={handlePressBtn}/>
+        <CustomText>Coming soon</CustomText>
       </View>
     </SafeAreaView>
   )
@@ -30,4 +23,4 @@ const styles = EStyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default GivingScreen;
