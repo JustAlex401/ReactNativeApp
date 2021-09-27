@@ -8,7 +8,8 @@ import CustomText from '../../components/CustomText';
 
 const GivingScreen = ({navigation}) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.screen}>
+      <HeaderElement navigation={navigation} title='Giving'/>
       <View style={styles.sectionContainer}>
         <CustomText>Coming soon</CustomText>
       </View>
@@ -17,8 +18,11 @@ const GivingScreen = ({navigation}) => {
 };
 
 const styles = EStyleSheet.create({
+  screen: {
+    flex: 1
+  },
   sectionContainer: {
-    marginTop: 32,
+    paddingVertical: 10,
     paddingHorizontal: 24,
   }
 });

@@ -8,7 +8,7 @@ const PaymentsStackElement = createNativeStackNavigator();
 export default PaymentsStack = () => {
   return (
     <PaymentsStackElement.Navigator screenOptions={{headerShown: false}}>
-      <PaymentsStackElement.Screen name="Payments" component={PaymentsScreen} />
+      <PaymentsStackElement.Screen name="PaymentsScreen" component={PaymentsScreen} />
     </PaymentsStackElement.Navigator>
   );
 };

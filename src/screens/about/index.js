@@ -10,7 +10,7 @@ import HeaderElement from '../../components/header';
 
 const AboutScreen = ({navigation}) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.screen}>
       <HeaderElement navigation={navigation} title='About'/>
       <View style={styles.sectionContainer}>
         <CustomText>About</CustomText>
@@ -20,8 +20,11 @@ const AboutScreen = ({navigation}) => {
 };
 
 const styles = EStyleSheet.create({
+  screen: {
+    flex: 1
+  },
   sectionContainer: {
-    marginTop: 32,
+    paddingVertical: 10,
     paddingHorizontal: 24,
   },
 });

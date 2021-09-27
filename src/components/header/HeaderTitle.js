@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
-import { SafeAreaView, Image, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import CustomText from '../CustomText';
 
 export default HeaderTitle = ({navigation, title}) => {
 
   return (
-    <SafeAreaView>
+    <View>
       <CustomText style={styles.text}>{title}</CustomText>
-    </SafeAreaView>
+    </View>
   );
 };
 

@@ -8,7 +8,7 @@ const CardsStackElement = createNativeStackNavigator();
 export default CardsStack = () => {
   return (
     <CardsStackElement.Navigator screenOptions={{headerShown: false}}>
-      <CardsStackElement.Screen name="Cards" component={CardsScreen} />
+      <CardsStackElement.Screen name="CardsScreen" component={CardsScreen} />
     </CardsStackElement.Navigator>
   );
 };

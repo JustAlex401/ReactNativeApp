@@ -8,7 +8,7 @@ const GivingStackElement = createNativeStackNavigator();
 export default GivingStack = () => {
   return (
     <GivingStackElement.Navigator screenOptions={{headerShown: false}}>
-      <GivingStackElement.Screen name="Giving" component={GivingScreen} />
+      <GivingStackElement.Screen name="GivingScreen" component={GivingScreen} />
     </GivingStackElement.Navigator>
   );
 };

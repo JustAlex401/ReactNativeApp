@@ -10,7 +10,7 @@ import HeaderElement from '../../components/header';
 
 const AccountScreen = ({navigation}) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.screen}>
       <HeaderElement navigation={navigation} title='Accounts'/>
       <View style={styles.sectionContainer}>
         <CustomText>Accounts</CustomText>
@@ -20,8 +20,11 @@ const AccountScreen = ({navigation}) => {
 };
 
 const styles = EStyleSheet.create({
+  screen: {
+    flex: 1
+  },
   sectionContainer: {
-    marginTop: 32,
+    paddingVertical: 10,
     paddingHorizontal: 24,
   },
 });

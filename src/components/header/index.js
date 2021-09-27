@@ -3,16 +3,18 @@ import { Header } from 'react-native-elements';
 import cutsomStyles from '../../../assets/styles';
 import HeaderTitle from './HeaderTitle';
 import LeftHeader from './LeftHeader';
+import LeftHomeHeader from './LeftHomeHeader';
 import RightHeader from './RightHeader';
 
-export default HeaderElement = ({navigation, title}) => {
+export default HeaderElement = ({route, navigation, title}) => {
 
   return (
     <Header
       backgroundColor={cutsomStyles.themeColor}
-      leftComponent={ props => <LeftHeader navigation={navigation}/>}
-      centerComponent={ props => <HeaderTitle title={title}/>}
-      rightComponent={ props => <RightHeader/>}
-    />
+    >
+      {route === 'HomeScreen' ? <LeftHomeHeader/> : <LeftHeader navigation={navigation}/>}
+      <HeaderTitle title={title}/>
+      <RightHeader/>
+    </Header>
   );
 };

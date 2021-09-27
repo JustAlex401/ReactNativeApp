@@ -6,15 +6,17 @@ import {
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import CustomText from '../../components/CustomText';
+import HeaderElement from '../../components/header';
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({route, navigation}) => {
 
   const handlePressBtn = () => {
-    navigation.navigate('About');
+    navigation.navigate('AboutScreen');
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.screen}>
+      <HeaderElement route={route.name} navigation={navigation} title='Home'/>
       <View style={styles.sectionContainer}>
         <CustomText>Home</CustomText>
         <Button title="Go to about" onPress={handlePressBtn}/>
@@ -24,8 +26,11 @@ const HomeScreen = ({navigation}) => {
 };
 
 const styles = EStyleSheet.create({
+  screen: {
+    flex: 1
+  },
   sectionContainer: {
-    marginTop: 32,
+    paddingVertical: 10,
     paddingHorizontal: 24,
   }
 });
