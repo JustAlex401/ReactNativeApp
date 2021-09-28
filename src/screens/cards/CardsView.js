@@ -1,29 +1,30 @@
 import React from 'react';
 import {
   SafeAreaView,
-  Text,
   View,
-  Button
 } from 'react-native';
-
 import EStyleSheet from 'react-native-extended-stylesheet';
+import CustomText from '../../components/CustomText';
 
-const Account = ({navigation}) => {
-
+const CardsView = ({navigation}) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.screen}>
+      <HeaderElement navigation={navigation} title='Cards'/>
       <View style={styles.sectionContainer}>
-        <Text>Account</Text>
+        <CustomText>Coming soon</CustomText>
       </View>
     </SafeAreaView>
-  );
+  )
 };
 
 const styles = EStyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  screen: {
+    flex: 1
   },
+  sectionContainer: {
+    paddingVertical: 10,
+    paddingHorizontal: 24,
+  }
 });
 
-export default Account;
+export default CardsView;

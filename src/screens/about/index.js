@@ -1,11 +1,9 @@
 import React from 'react';
-
-import About from '../components/About';
+import AboutView from './AboutView';
 
 const AboutScreen = ({navigation}) => {
-
   return (
-    <About navigation={navigation}/>
+    <AboutView navigation={navigation}/>
   );
 };
 
