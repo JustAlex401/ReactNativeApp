@@ -6,7 +6,7 @@ export default LeftHomeHeader = ({navigation}) => {
 
   return (
     <View style={styles.root}>
-      <TouchableOpacity onPress={() => console.log("AAAA")}>
+      <TouchableOpacity onPress={() => console.log("Drawer")}>
         <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={styles.iconSize}/>
       </TouchableOpacity>
     </View>
