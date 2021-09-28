@@ -1,32 +1,10 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-} from 'react-native';
+import AccountView from './AccountsView';
 
-import EStyleSheet from 'react-native-extended-stylesheet';
-import CustomText from '../../components/CustomText';
-import HeaderElement from '../../components/header';
-
-const AccountScreen = ({navigation}) => {
+const AccountScreen = (props) => {
   return (
-    <SafeAreaView style={styles.screen}>
-      <HeaderElement navigation={navigation} title='Accounts'/>
-      <View style={styles.sectionContainer}>
-        <CustomText>Accounts</CustomText>
-      </View>
-    </SafeAreaView>
+    <AccountView {...props}/>
   );
 };
-
-const styles = EStyleSheet.create({
-  screen: {
-    flex: 1
-  },
-  sectionContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 24,
-  },
-});
 
 export default AccountScreen;
