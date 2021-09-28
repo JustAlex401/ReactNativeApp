@@ -12,7 +12,7 @@ export default HeaderElement = ({route, navigation, title}) => {
     <Header
       backgroundColor={cutsomStyles.themeColor}
     >
-      {route === 'HomeScreen' ? <LeftHomeHeader/> : <LeftHeader navigation={navigation}/>}
+      {route === 'HomeScreen' ? <LeftHomeHeader navigation={navigation}/> : <LeftHeader navigation={navigation}/>}
       <HeaderTitle title={title}/>
       <RightHeader/>
     </Header>

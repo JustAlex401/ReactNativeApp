@@ -1,12 +1,14 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default LeftHomeHeader = ({navigation}) => {
 
   return (
     <View style={styles.root}>
-      <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={styles.iconSize}/>
+      <TouchableOpacity onPress={() => console.log("AAAA")}>
+        <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={styles.iconSize}/>
+      </TouchableOpacity>
     </View>
   );
 };
