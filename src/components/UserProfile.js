@@ -1,13 +1,14 @@
+
 import React from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-export default RightHeader = ({navigation}) => {
+export default UserProfile = () => {
 
   return (
     <View>
       <TouchableOpacity onPress={() => console.log("logic")}>
-        <Image source={require('../../../assets/icons/oval.png')} style={styles.iconSize}/>
+        <Image source={require('../../assets/icons/oval.png')} style={styles.iconSize}/>
       </TouchableOpacity>
     </View>
   );

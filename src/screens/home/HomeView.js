@@ -2,17 +2,31 @@ import React from 'react';
 import {
   SafeAreaView,
   View,
-  Button
+  Button,
+  TouchableOpacity,
+  Image
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import CustomText from '../../components/CustomText';
-import HeaderElement from '../../components/header';
+import Header from '../../components/header';
+import UserProfile from '../../components/UserProfile';
+import globalStyles from '../../../assets/styles';
 
 const HomeView = ({route, navigation, handlePressBtn}) => {
   return (
-    <SafeAreaView style={styles.screen}>
-      <HeaderElement route={route.name} navigation={navigation} title='Home'/>
-      <View style={styles.sectionContainer}>
+    <SafeAreaView style={globalStyles.flex}>
+      <Header 
+        left={
+          <TouchableOpacity onPress={() => console.log("Drawer")}>
+            <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={globalStyles.iconSize}/>
+          </TouchableOpacity>
+        }
+        title='Home' 
+        right={
+          <UserProfile/>
+        }
+      />
+      <View style={globalStyles.sectionContainer}>
         <CustomText>Home</CustomText>
         <Button title="Go to about" onPress={handlePressBtn}/>
       </View>
@@ -21,13 +35,7 @@ const HomeView = ({route, navigation, handlePressBtn}) => {
 };
 
 const styles = EStyleSheet.create({
-  screen: {
-    flex: 1
-  },
-  sectionContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 24,
-  }
+  
 });
 
 export default HomeView;
