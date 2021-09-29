@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AboutScreen from '../../screens/about';
-import HomeScreen from '../../screens/home';
+import AboutScreen from '../../../screens/about';
+import HomeScreen from '../../../screens/home';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const HomeStackElement = createNativeStackNavigator();
+const HomeStackElement = createStackNavigator();
 
 export default HomeStack = () => {
   return (

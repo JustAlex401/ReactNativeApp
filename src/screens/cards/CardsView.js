@@ -16,7 +16,7 @@ const CardsView = ({navigation}) => {
     <SafeAreaView style={globalStyles.flex}>
       <Header 
         left={
-          <TouchableOpacity onPress={() => console.log("Drawer")}>
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={globalStyles.iconSize}/>
           </TouchableOpacity>
         }

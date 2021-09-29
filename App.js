@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Navigator from './src/navigation/Navigator';
 
@@ -7,7 +9,11 @@ EStyleSheet.build({});
 
 const App = () => {
   return (
-    <Navigator/>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Navigator/>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 
