@@ -18,7 +18,7 @@ const HomeView = ({route, navigation, handlePressBtn}) => {
       <Header 
         left={
           <TouchableOpacity onPress={() => console.log("Drawer")}>
-            <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={globalStyles.iconSize}/>
+            <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={styles.iconSize}/>
           </TouchableOpacity>
         }
         title='Home' 
@@ -35,7 +35,10 @@ const HomeView = ({route, navigation, handlePressBtn}) => {
 };
 
 const styles = EStyleSheet.create({
-  
+  iconSize: {
+    width: 15,
+    height: 15
+  }
 });
 
 export default HomeView;
