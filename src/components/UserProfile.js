@@ -19,7 +19,7 @@ export default UserProfile = () => {
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
-        <View style={styles.modalView}>
+        <TouchableOpacity onPressOut={() => setModalVisible(false)} style={styles.modalView}>
           <View style={styles.modal}>
             <View style={styles.modalContentView}>
               <TouchableOpacity onPress={() => setModalVisible(false)}>
@@ -27,7 +27,7 @@ export default UserProfile = () => {
               </TouchableOpacity>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
       </Modal>
     </SafeAreaView>
   );
