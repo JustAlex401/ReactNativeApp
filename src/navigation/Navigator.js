@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
-import CustomText from '../components/CustomText';
 import AppStack from './stack/AppStack';
+import AuthStack from './stack/AuthStack';
 
 const Stack = createStackNavigator();
 
 const Navigator = () => {
 
-  const [isSignIn, setIsSignIn] = useState(true);
+  const [isSignIn, setIsSignIn] = useState(false);
 
   return (
     <Stack.Navigator >
@@ -21,7 +21,7 @@ const Navigator = () => {
         :
           <Stack.Screen
             name="Auth"
-            component={() => <CustomText>You do not sign in</CustomText>}
+            component={AuthStack}
             options={{headerShown: false}}
           />
       }
