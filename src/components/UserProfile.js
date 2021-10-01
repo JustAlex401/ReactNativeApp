@@ -1,16 +1,35 @@
 
-import React from 'react';
-import { Image, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { Image, Modal, SafeAreaView, TouchableOpacity, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import CustomText from './CustomText';
 
 export default UserProfile = () => {
 
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
-    <View>
-      <TouchableOpacity onPress={() => console.log("logic")}>
+    <SafeAreaView style={styles.container}>
+      <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
         <Image source={require('../../assets/icons/oval.png')} style={styles.iconSize}/>
       </TouchableOpacity>
-    </View>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modalView}>
+          <View style={styles.modal}>
+            <View style={styles.modalContentView}>
+              <TouchableOpacity onPress={() => setModalVisible(false)}>
+                <CustomText>Log out</CustomText>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    </SafeAreaView>
   );
 };
 
@@ -19,5 +38,27 @@ const styles = EStyleSheet.create({
     width: 25,
     height: 25,
     resizeMode: 'contain'
+  },
+  container: {
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
+  modalView: {
+    flex: 1, 
+    justifyContent: 'flex-start', 
+    alignItems: 'flex-end', 
+    marginTop: 50, 
+    marginRight: 10
+  },
+  modal: {
+    height: 60, 
+    width: 100, 
+    backgroundColor: 'white'
+  },
+  modalContentView: {
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center'
   }
 });
