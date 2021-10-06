@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import CardsScreen from '../../screens/cards';
+import CardsScreen from '../../../Screens/Cards';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const CardsStackElement = createNativeStackNavigator();
+const CardsStackElement = createStackNavigator();
 
 export default CardsStack = () => {
   return (

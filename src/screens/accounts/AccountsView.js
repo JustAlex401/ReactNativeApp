@@ -7,9 +7,9 @@ import {
 } from 'react-native';
 
 import EStyleSheet from 'react-native-extended-stylesheet';
-import CustomText from '../../components/CustomText';
-import Header from '../../components/header';
-import UserProfile from '../../components/UserProfile';
+import CustomText from '../../Components/CustomText';
+import Header from '../../Components/Header';
+import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
 const AccountView = ({navigation}) => {
@@ -17,7 +17,7 @@ const AccountView = ({navigation}) => {
     <SafeAreaView style={globalStyles.flex}>
       <Header 
         left={
-          <TouchableOpacity onPress={() => console.log("Drawer")}>
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={globalStyles.iconSize}/>
           </TouchableOpacity>
         }

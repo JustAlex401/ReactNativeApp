@@ -7,9 +7,9 @@ import {
   Image
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import CustomText from '../../components/CustomText';
-import Header from '../../components/header';
-import UserProfile from '../../components/UserProfile';
+import CustomText from '../../Components/CustomText';
+import Header from '../../Components/Header';
+import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
 const HomeView = ({route, navigation, handlePressBtn}) => {
@@ -17,8 +17,8 @@ const HomeView = ({route, navigation, handlePressBtn}) => {
     <SafeAreaView style={globalStyles.flex}>
       <Header 
         left={
-          <TouchableOpacity onPress={() => console.log("Drawer")}>
-            <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={globalStyles.iconSize}/>
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={styles.iconSize}/>
           </TouchableOpacity>
         }
         title='Home' 
@@ -35,7 +35,10 @@ const HomeView = ({route, navigation, handlePressBtn}) => {
 };
 
 const styles = EStyleSheet.create({
-  
+  iconSize: {
+    width: 15,
+    height: 15
+  }
 });
 
 export default HomeView;

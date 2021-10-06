@@ -7,8 +7,8 @@ import {
 } from 'react-native';
 
 import EStyleSheet from 'react-native-extended-stylesheet';
-import CustomText from '../../components/CustomText';
-import Header from '../../components/header';
+import CustomText from '../../Components/CustomText';
+import Header from '../../Components/Header';
 import globalStyles from '../../../assets/styles';
 
 const AboutView = ({navigation}) => {
@@ -16,8 +16,8 @@ const AboutView = ({navigation}) => {
     <SafeAreaView style={globalStyles.flex}>
       <Header 
         left={
-          <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
-            <Image source={require('../../../assets/icons/back.png')} style={globalStyles.iconSize}/>
+          <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.touchableOpacity}>
+            <Image source={require('../../../assets/icons/back.png')} style={styles.iconSize}/>
           </TouchableOpacity>
         }
         title='Accounts' 
@@ -33,7 +33,14 @@ const AboutView = ({navigation}) => {
 };
 
 const styles = EStyleSheet.create({
-  
+  iconSize: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain'
+  },
+  touchableOpacity: {
+    left: -4
+  }
 });
 
 export default AboutView;
