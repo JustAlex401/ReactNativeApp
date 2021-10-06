@@ -11,7 +11,7 @@ export default DrawerMenu = (props) => {
   return (
     <SafeAreaView style={[globalStyles.flex, globalStyles.sectionContainer]}>
       <DrawerContentScrollView style={styles.drawerScroll}>
-        <TouchableOpacity style={styles.touchableOpacity} onPress={() => props.navigation.navigate('TabStack')}>
+        <TouchableOpacity style={styles.touchableOpacity} onPress={() => props.navigation.navigate('Home')}>
           <CustomText style={styles.text}>Home</CustomText>
         </TouchableOpacity>
       </DrawerContentScrollView>
