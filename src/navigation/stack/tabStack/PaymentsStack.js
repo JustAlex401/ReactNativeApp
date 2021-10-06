@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PaymentsScreen from '../../../screens/payments';
+import PaymentsScreen from '../../../Screens/Payments';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const PaymentsStackElement = createStackNavigator();

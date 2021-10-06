@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CardsScreen from '../../../screens/cards';
+import CardsScreen from '../../../Screens/Cards';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const CardsStackElement = createStackNavigator();

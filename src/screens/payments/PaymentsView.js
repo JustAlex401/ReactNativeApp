@@ -6,9 +6,9 @@ import {
   Image
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import CustomText from '../../components/CustomText';
-import Header from '../../components/header';
-import UserProfile from '../../components/UserProfile';
+import CustomText from '../../Components/CustomText';
+import Header from '../../Components/Header';
+import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
 const PaymentsView = ({navigation}) => {

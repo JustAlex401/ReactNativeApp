@@ -7,7 +7,7 @@ import {
   Image
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import CustomText from '../../components/CustomText';
+import CustomText from '../../Components/CustomText';
 import globalStyles from '../../../assets/styles';
 
 const LogInView = (props) => {
