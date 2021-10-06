@@ -1,0 +1,14 @@
+import React from 'react';
+
+import GivingScreen from '../../../Screens/Giving';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const GivingStackElement = createStackNavigator();
+
+export default GivingStack = () => {
+  return (
+    <GivingStackElement.Navigator screenOptions={{headerShown: false}}>
+      <GivingStackElement.Screen name="GivingScreen" component={GivingScreen} />
+    </GivingStackElement.Navigator>
+  );
+};
