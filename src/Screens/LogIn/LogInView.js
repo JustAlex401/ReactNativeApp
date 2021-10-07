@@ -67,7 +67,7 @@ const LogInView = (props) => {
         {isKeyboardOpen ? 
             null
           :
-            <View style={styles.loginWaysView}>
+            <View style={styles.logInWaysView}>
               <CustomText style={styles.logInWaysText}>Lets test two ways to login</CustomText>
               <View style={styles.logInButtonsView}>
                 <TouchableOpacity style={styles.logInWaysButton} onPress={() => console.log('Touch ID')}>
@@ -145,7 +145,7 @@ const styles = EStyleSheet.create({
     color: 'white',
     fontSize: 14
   },
-  loginWaysView: {
+  logInWaysView: {
     marginTop: 60, 
     flex: 1, 
     alignItems: 'center', 
