@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 
 const Navigator = () => {
 
-  const [isSignIn, setIsSignIn] = useState(true);
+  const [isSignIn, setIsSignIn] = useState(false);
 
   return (
     <Stack.Navigator >
