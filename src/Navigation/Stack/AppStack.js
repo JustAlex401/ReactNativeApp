@@ -11,6 +11,7 @@ import CardsStack from './TabStack/CardsStack.js';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import DrawerMenu from '../../Components/DrawerMenu';
+import SavingsScreen from '../../Screens/Savings';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -95,6 +96,11 @@ const DrawerStack = () => {
       <Drawer.Screen
         name="TabStack"
         component={TabStack}
+        options={{headerShown: false}}
+      />
+      <Drawer.Screen
+        name="SavingsScreen"
+        component={SavingsScreen}
         options={{headerShown: false}}
       />
     </Drawer.Navigator>

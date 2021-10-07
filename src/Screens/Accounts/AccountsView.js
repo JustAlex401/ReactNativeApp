@@ -11,8 +11,9 @@ import CustomText from '../../Components/CustomText';
 import Header from '../../Components/Header';
 import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
+import { Button } from 'react-native-elements';
 
-const AccountView = ({navigation}) => {
+const AccountView = ({navigation, handlePressBtn}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
@@ -28,6 +29,7 @@ const AccountView = ({navigation}) => {
       />
       <View style={globalStyles.sectionContainer}>
         <CustomText>Accounts</CustomText>
+        <Button title="Go to savings" onPress={handlePressBtn}/>
       </View>
     </SafeAreaView>
   );
