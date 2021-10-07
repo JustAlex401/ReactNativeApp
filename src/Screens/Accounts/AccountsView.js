@@ -29,8 +29,8 @@ const AccountView = ({navigation, handlePressBtn}) => {
       />
       <View style={globalStyles.sectionContainer}>
         <CustomText>Accounts</CustomText>
-        <Button title="Go to savings" onPress={() => handlePressBtn('SavingsScreen')}/>
-        <Button title="Go to checking" onPress={() => handlePressBtn('CheckingScreen')}/>
+        <Button title="Go to savings" onPress={() => handlePressBtn('SavingsScreen', {subtitle: 'SavingsScreen'})}/>
+        <Button title="Go to checking" onPress={() => handlePressBtn('CheckingScreen', {subtitle: 'CheckingScreen'})}/>
       </View>
     </SafeAreaView>
   );

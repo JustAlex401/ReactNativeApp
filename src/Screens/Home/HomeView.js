@@ -29,8 +29,8 @@ const HomeView = ({route, navigation, handlePressBtn}) => {
       <View style={globalStyles.sectionContainer}>
         <CustomText>Home</CustomText>
         <Button title="Go to about" onPress={() => handlePressBtn('AboutScreen')}/>
-        <Button title="Go to savings" onPress={() => handlePressBtn('SavingsScreen')}/>
-        <Button title="Go to checking" onPress={() => handlePressBtn('CheckingScreen')}/>
+        <Button title="Go to savings" onPress={() => handlePressBtn('SavingsScreen', {subtitle: 'SavingsScreen'})}/>
+        <Button title="Go to checking" onPress={() => handlePressBtn('CheckingScreen', {subtitle: 'CheckingScreen'})}/>
       </View>
     </SafeAreaView>
   )

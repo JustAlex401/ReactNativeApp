@@ -11,7 +11,7 @@ import Header from '../../Components/Header';
 import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
-const CheckingView = ({navigation}) => {
+const CheckingView = ({route, navigation}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
@@ -20,7 +20,12 @@ const CheckingView = ({navigation}) => {
             <Image source={require('../../../assets/icons/back.png')} style={styles.iconSize}/>
           </TouchableOpacity>
         }
-        title='Checking' 
+        center={
+          <View style={styles.centerHeader}>
+            <CustomText style={styles.title}>Checking</CustomText>
+            <CustomText style={styles.subtitle}>{route.params.subtitle}</CustomText>
+          </View>
+        }
         right={
           <UserProfile/>
         }
@@ -40,6 +45,20 @@ const styles = EStyleSheet.create({
   },
   touchableOpacity: {
     left: -4
+  }, 
+  title: {
+    color: 'white', 
+    fontSize: 16
+  },
+  subtitle : {
+    color: 'white', 
+    fontSize: 10
+  },
+  centerHeader: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 

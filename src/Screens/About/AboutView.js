@@ -20,7 +20,7 @@ const AboutView = ({navigation}) => {
             <Image source={require('../../../assets/icons/back.png')} style={styles.iconSize}/>
           </TouchableOpacity>
         }
-        title='Accounts' 
+        title='About' 
         right={
           <UserProfile/>
         }

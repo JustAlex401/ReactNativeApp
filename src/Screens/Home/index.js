@@ -3,8 +3,8 @@ import HomeView from './HomeView';
 
 const HomeScreen = (props) => {
 
-  const handlePressBtn = (screenName) => {
-    props.navigation.navigate(screenName);
+  const handlePressBtn = (screenName, params) => {
+    props.navigation.navigate(screenName, params ? params : null);
   }
 
   return (
