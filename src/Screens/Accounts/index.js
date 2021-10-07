@@ -3,8 +3,8 @@ import AccountView from './AccountsView';
 
 const AccountScreen = (props) => {
 
-  const handlePressBtn = () => {
-    props.navigation.navigate('SavingsScreen');
+  const handlePressBtn = (screenName) => {
+    props.navigation.navigate(screenName);
   }
 
   return (

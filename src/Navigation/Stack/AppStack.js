@@ -12,6 +12,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import DrawerMenu from '../../Components/DrawerMenu';
 import SavingsScreen from '../../Screens/Savings';
+import CheckingScreen from '../../Screens/Checking';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -101,6 +102,11 @@ const DrawerStack = () => {
       <Drawer.Screen
         name="SavingsScreen"
         component={SavingsScreen}
+        options={{headerShown: false}}
+      />
+      <Drawer.Screen
+        name="CheckingScreen"
+        component={CheckingScreen}
         options={{headerShown: false}}
       />
     </Drawer.Navigator>

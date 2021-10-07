@@ -11,7 +11,7 @@ import Header from '../../Components/Header';
 import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
-const SavingsView = ({navigation}) => {
+const CheckingView = ({navigation}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
@@ -20,13 +20,13 @@ const SavingsView = ({navigation}) => {
             <Image source={require('../../../assets/icons/back.png')} style={styles.iconSize}/>
           </TouchableOpacity>
         }
-        title='Savings' 
+        title='Checking' 
         right={
           <UserProfile/>
         }
       />
       <View style={globalStyles.sectionContainer}>
-        <CustomText>Savings</CustomText>
+        <CustomText>Checking</CustomText>
       </View>
     </SafeAreaView>
   )
@@ -43,4 +43,4 @@ const styles = EStyleSheet.create({
   }
 });
 
-export default SavingsView;
+export default CheckingView;
