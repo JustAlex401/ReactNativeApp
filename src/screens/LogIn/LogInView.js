@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   SafeAreaView,
   View,
-  TouchableOpacity,
-  Keyboard
+  TouchableOpacity
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import CustomText from '../../Components/CustomText';
@@ -11,24 +10,7 @@ import globalStyles from '../../../assets/styles';
 import { Input } from 'react-native-elements';
 import { Icon } from 'react-native-elements'
 
-const LogInView = (props) => {
-
-  const [isKeyboardOpen, setKeyboardStatus] = useState(false);
-
-  useEffect(() => {
-    const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
-      setKeyboardStatus(true);
-    });
-    const hideSubscription = Keyboard.addListener("keyboardDidHide", () => {
-      setKeyboardStatus(false);
-    });
-
-    return () => {
-      showSubscription.remove();
-      hideSubscription.remove();
-    };
-  }, []);
-
+const LogInView = ({isKeyboardOpen}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <View style={styles.content}>

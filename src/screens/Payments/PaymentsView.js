@@ -2,7 +2,6 @@ import React from 'react';
 import {
   SafeAreaView,
   View,
-  Button,
   TouchableOpacity,
   Image
 } from 'react-native';
@@ -12,33 +11,29 @@ import Header from '../../Components/Header';
 import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
-const HomeView = ({route, navigation, handlePressBtn}) => {
+const PaymentsView = ({handleOpenDrawer}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
         left={
-          <TouchableOpacity onPress={navigation.openDrawer}>
-            <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={styles.iconSize}/>
+          <TouchableOpacity onPress={handleOpenDrawer}>
+            <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={globalStyles.iconSize}/>
           </TouchableOpacity>
         }
-        title='Home' 
+        title='Payments' 
         right={
           <UserProfile/>
         }
       />
       <View style={globalStyles.sectionContainer}>
-        <CustomText>Home</CustomText>
-        <Button title="Go to about" onPress={handlePressBtn}/>
+        <CustomText>Coming soon</CustomText>
       </View>
     </SafeAreaView>
   )
 };
 
 const styles = EStyleSheet.create({
-  iconSize: {
-    width: 15,
-    height: 15
-  }
+  
 });
 
-export default HomeView;
+export default PaymentsView;

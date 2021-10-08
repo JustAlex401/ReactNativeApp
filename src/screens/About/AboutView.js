@@ -5,35 +5,42 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
+
 import EStyleSheet from 'react-native-extended-stylesheet';
 import CustomText from '../../Components/CustomText';
 import Header from '../../Components/Header';
-import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
-const CardsView = ({navigation}) => {
+const AboutView = ({handleNavigationToScreen}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
         left={
-          <TouchableOpacity onPress={navigation.openDrawer}>
-            <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={globalStyles.iconSize}/>
+          <TouchableOpacity onPress={() => handleNavigationToScreen('HomeScreen')} style={styles.touchableOpacity}>
+            <Image source={require('../../../assets/icons/back.png')} style={styles.iconSize}/>
           </TouchableOpacity>
         }
-        title='Cards' 
+        title='About' 
         right={
           <UserProfile/>
         }
       />
       <View style={globalStyles.sectionContainer}>
-        <CustomText>Coming soon</CustomText>
+        <CustomText>About</CustomText>
       </View>
     </SafeAreaView>
-  )
+  );
 };
 
 const styles = EStyleSheet.create({
-  
+  iconSize: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain'
+  },
+  touchableOpacity: {
+    left: -4
+  }
 });
 
-export default CardsView;
+export default AboutView;

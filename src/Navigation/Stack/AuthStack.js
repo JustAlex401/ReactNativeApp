@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
-import LogInScreen from '../../Screens/LogIn';
+import LogInScreen from '../../screens/LogIn';
 
 const Stack = createStackNavigator();
 

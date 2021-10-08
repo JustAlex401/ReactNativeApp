@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GivingScreen from '../../../Screens/Giving';
+import GivingScreen from '../../../screens/Giving';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const GivingStackElement = createStackNavigator();
