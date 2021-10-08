@@ -11,8 +11,8 @@ import CardsStack from './TabStack/CardsStack.js';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import DrawerMenu from '../../Components/DrawerMenu';
-import SavingsScreen from '../../Screens/Savings';
-import CheckingScreen from '../../Screens/Checking';
+import SavingsScreen from '../../screens/Savings';
+import CheckingScreen from '../../screens/Checking';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();

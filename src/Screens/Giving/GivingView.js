@@ -11,12 +11,12 @@ import Header from '../../Components/Header';
 import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
-const GivingView = ({navigation}) => {
+const GivingView = ({handleOpenDrawer}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
         left={
-          <TouchableOpacity onPress={navigation.openDrawer}>
+          <TouchableOpacity onPress={handleOpenDrawer}>
             <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={globalStyles.iconSize}/>
           </TouchableOpacity>
         }

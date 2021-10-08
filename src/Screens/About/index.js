@@ -2,8 +2,13 @@ import React from 'react';
 import AboutView from './AboutView';
 
 const AboutScreen = ({navigation}) => {
+
+  const handleNavigationToScreen = (screenName) => {
+    navigation.navigate(screenName);
+  };
+
   return (
-    <AboutView navigation={navigation}/>
+    <AboutView handleNavigationToScreen={handleNavigationToScreen}/>
   );
 };
 

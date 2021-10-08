@@ -11,12 +11,12 @@ import CustomText from '../../Components/CustomText';
 import Header from '../../Components/Header';
 import globalStyles from '../../../assets/styles';
 
-const AboutView = ({navigation}) => {
+const AboutView = ({handleNavigationToScreen}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
         left={
-          <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.touchableOpacity}>
+          <TouchableOpacity onPress={() => handleNavigationToScreen('HomeScreen')} style={styles.touchableOpacity}>
             <Image source={require('../../../assets/icons/back.png')} style={styles.iconSize}/>
           </TouchableOpacity>
         }

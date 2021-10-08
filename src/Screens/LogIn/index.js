@@ -22,7 +22,7 @@ const LogInScreen = (props) => {
 
 
   return (
-    <LogInView {...props} isKeyboardOpen={isKeyboardOpen}/>
+    <LogInView isKeyboardOpen={isKeyboardOpen}/>
   )
 };
 

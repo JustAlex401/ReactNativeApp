@@ -3,13 +3,17 @@ import HomeView from './HomeView';
 
 const HomeScreen = (props) => {
 
-  const handlePressBtn = (screenName, params) => {
+  const handleNavigationToScreen = (screenName, params) => {
     props.navigation.navigate(screenName, params ? params : null);
-  }
+  };
+
+  const handleOpenDrawer = () => {
+    props.navigation.openDrawer();
+  };
 
   return (
-    <HomeView {...props} handlePressBtn={handlePressBtn}/>
-  )
+    <HomeView handleOpenDrawer={handleOpenDrawer} handleNavigationToScreen={handleNavigationToScreen}/>
+  );
 };
 
 export default HomeScreen;

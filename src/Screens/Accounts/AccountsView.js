@@ -13,12 +13,12 @@ import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
 import { Button } from 'react-native-elements';
 
-const AccountView = ({navigation, handlePressBtn}) => {
+const AccountView = ({handleNavigationToScreen, handleOpenDrawer}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
         left={
-          <TouchableOpacity onPress={navigation.openDrawer}>
+          <TouchableOpacity onPress={handleOpenDrawer}>
             <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={globalStyles.iconSize}/>
           </TouchableOpacity>
         }
@@ -29,8 +29,8 @@ const AccountView = ({navigation, handlePressBtn}) => {
       />
       <View style={globalStyles.sectionContainer}>
         <CustomText>Accounts</CustomText>
-        <Button title="Go to savings" onPress={() => handlePressBtn('SavingsScreen', {subtitle: 'SavingsScreen'})}/>
-        <Button title="Go to checking" onPress={() => handlePressBtn('CheckingScreen', {subtitle: 'CheckingScreen'})}/>
+        <Button title="Go to savings" onPress={() => handleNavigationToScreen('SavingsScreen', {subtitle: 'SavingsScreen'})}/>
+        <Button title="Go to checking" onPress={() => handleNavigationToScreen('CheckingScreen', {subtitle: 'CheckingScreen'})}/>
       </View>
     </SafeAreaView>
   );

@@ -11,19 +11,19 @@ import Header from '../../Components/Header';
 import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
-const CheckingView = ({route, navigation}) => {
+const CheckingView = ({subtitle, handleNavigationGoBack}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
         left={
-          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.touchableOpacity}>
+          <TouchableOpacity onPress={handleNavigationGoBack} style={styles.touchableOpacity}>
             <Image source={require('../../../assets/icons/back.png')} style={styles.iconSize}/>
           </TouchableOpacity>
         }
         center={
           <View style={styles.centerHeader}>
             <CustomText style={styles.title}>Checking</CustomText>
-            <CustomText style={styles.subtitle}>{route.params.subtitle}</CustomText>
+            <CustomText style={styles.subtitle}>{subtitle}</CustomText>
           </View>
         }
         right={

@@ -12,12 +12,12 @@ import Header from '../../Components/Header';
 import UserProfile from '../../Components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
-const HomeView = ({route, navigation, handlePressBtn}) => {
+const HomeView = ({handleOpenDrawer, handleNavigationToScreen}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
         left={
-          <TouchableOpacity onPress={navigation.openDrawer}>
+          <TouchableOpacity onPress={handleOpenDrawer}>
             <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={styles.iconSize}/>
           </TouchableOpacity>
         }
@@ -28,12 +28,12 @@ const HomeView = ({route, navigation, handlePressBtn}) => {
       />
       <View style={globalStyles.sectionContainer}>
         <CustomText>Home</CustomText>
-        <Button title="Go to about" onPress={() => handlePressBtn('AboutScreen')}/>
-        <Button title="Go to savings" onPress={() => handlePressBtn('SavingsScreen', {subtitle: 'SavingsScreen'})}/>
-        <Button title="Go to checking" onPress={() => handlePressBtn('CheckingScreen', {subtitle: 'CheckingScreen'})}/>
+        <Button title="Go to about" onPress={() => handleNavigationToScreen('AboutScreen')}/>
+        <Button title="Go to savings" onPress={() => handleNavigationToScreen('SavingsScreen', {subtitle: 'SavingsScreen'})}/>
+        <Button title="Go to checking" onPress={() => handleNavigationToScreen('CheckingScreen', {subtitle: 'CheckingScreen'})}/>
       </View>
     </SafeAreaView>
-  )
+  );
 };
 
 const styles = EStyleSheet.create({

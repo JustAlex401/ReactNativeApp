@@ -3,12 +3,16 @@ import AccountView from './AccountsView';
 
 const AccountScreen = (props) => {
 
-  const handlePressBtn = (screenName, params) => {
+  const handleNavigationToScreen = (screenName, params) => {
     props.navigation.navigate(screenName, params ? params : null);
-  }
+  };
+
+  const handleOpenDrawer = () => {
+    props.navigation.openDrawer();
+  };
 
   return (
-    <AccountView {...props} handlePressBtn={handlePressBtn}/>
+    <AccountView handleNavigationToScreen={handleNavigationToScreen} handleOpenDrawer={handleOpenDrawer}/>
   );
 };
 
