@@ -3,17 +3,12 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Image } from 'react-native';
-import globalStyles from '../../../assets/styles';
-import HomeStack from './TabStack/HomeStack.js';
-import AccountsStack from './TabStack/AccountsStack.js';
-import GivingStack from './TabStack/GivingStack.js';
-import PaymentsStack from './TabStack/PaymentsStack.js';
-import CardsStack from './TabStack/CardsStack.js';
-import DrawerMenu from '../../Components/DrawerMenu';
-import SavingsScreen from '../../screens/Savings';
-import CheckingScreen from '../../screens/Checking';
-import TabBar from '../../Components/TabBar';
+
+import { HomeStack, AccountsStack, GivingStack, PaymentsStack, CardsStack} from '../TabStack';
+import DrawerMenu from '../../../Components/DrawerMenu';
+import SavingsScreen from '../../../screens/Savings';
+import CheckingScreen from '../../../screens/Checking';
+import TabBar from '../../../Components/TabBar';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();

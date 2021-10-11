@@ -3,8 +3,8 @@ import { DrawerContentScrollView } from '@react-navigation/drawer';
 import React from 'react';
 import { TouchableOpacity, SafeAreaView } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import globalStyles from '../../assets/styles';
-import CustomText from './CustomText';
+import globalStyles from '../../../assets/styles';
+import CustomText from '../CustomText';
 
 export default DrawerMenu = (props) => {
 

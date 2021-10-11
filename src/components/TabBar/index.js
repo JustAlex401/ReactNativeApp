@@ -2,9 +2,9 @@
 import React from 'react';
 import { Image, SafeAreaView, TouchableOpacity, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import CustomText from './CustomText';
-import globalStyles from '../../assets/styles';
-import bottomBarImagesPath from '../utils/bottomBarImagesPath';
+import CustomText from '../CustomText';
+import globalStyles from '../../../assets/styles';
+import bottomBarImagesPath from '../../utils/bottomBarImagesPath';
 
 export default TabBar = ({state, descriptors, navigation}) => {
   return (
