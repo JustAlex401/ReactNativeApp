@@ -10,6 +10,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import CustomText from '../../Components/CustomText';
 import Header from '../../Components/Header';
 import globalStyles from '../../../assets/styles';
+import UserProfile from '../../Components/UserProfile';
 
 const AboutView = ({handleNavigationToScreen}) => {
   return (

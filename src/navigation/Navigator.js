@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
-import AppStack from './Stack/AppStack';
-import AuthStack from './Stack/AuthStack';
+import AppStack from './stack/AppStack';
+import AuthStack from './stack/AuthStack';
 
 const Stack = createStackNavigator();
 

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Image, Modal, SafeAreaView, TouchableOpacity, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import CustomText from './CustomText';
+import CustomText from '../CustomText';
 
 export default UserProfile = () => {
 
@@ -11,7 +11,7 @@ export default UserProfile = () => {
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
-        <Image source={require('../../assets/icons/oval.png')} style={styles.iconSize}/>
+        <Image source={require('../../../assets/icons/oval.png')} style={styles.iconSize}/>
       </TouchableOpacity>
       <Modal
         animationType="fade"
