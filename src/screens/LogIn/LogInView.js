@@ -5,7 +5,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import CustomText from '../../Components/CustomText';
+import CustomText from '../../components/CustomText';
 import globalStyles from '../../../assets/styles';
 import { Input } from 'react-native-elements';
 import { Icon } from 'react-native-elements'

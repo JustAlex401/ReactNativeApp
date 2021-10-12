@@ -5,10 +5,10 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { HomeStack, AccountsStack, GivingStack, PaymentsStack, CardsStack} from '../TabStack';
-import DrawerMenu from '../../../Components/DrawerMenu';
+import DrawerMenu from '../../../components/DrawerMenu';
 import SavingsScreen from '../../../screens/Savings';
 import CheckingScreen from '../../../screens/Checking';
-import TabBar from '../../../Components/TabBar';
+import TabBar from '../../../components/TabBar';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
