@@ -1,11 +1,60 @@
+import { LOGOUT_USER, LOGOUT_USER_FAILURE, LOGOUT_USER_SUCCESS } from "../../components/UserProfile/constants";
+import { LOGIN_USER, LOGIN_USER_FAILURE, LOGIN_USER_SUCCESS } from "../../screens/LogIn/constants";
+
 const initialState = {
-  user: {
-    name: 'Alex'
-  }
+  data: {},
+  loading: false,
+  error: null
 };
 
 function userReducer(state = initialState, action) {
-  return {...state};
+  // switch (action.type) {
+  //   case LOGIN_USER:
+  //     return {
+  //       ...state,
+  //       loading: true,
+  //       error: null
+  //     }
+  //   case LOGIN_USER_SUCCESS:
+  //     return {
+  //       ...state,
+  //       loading: false,
+  //       data: {
+  //         email: action.payload.email,
+  //         token: action.payload.password
+  //       }
+  //     }
+  //   case LOGIN_USER_FAILURE:
+  //     return {
+  //       ...state,
+  //       loading: false,
+  //       error: action.payload
+  //     }
+  //   case LOGOUT_USER:
+  //     return {
+  //       ...state,
+  //       loading: true,
+  //       error: null
+  //     }
+  //   case LOGOUT_USER_SUCCESS:
+  //     return {
+  //       ...state,
+  //       loading: false,
+  //       data: {
+  //         email: '',
+  //         token: ''
+  //       }
+  //     }
+  //   case LOGOUT_USER_FAILURE:
+  //     return {
+  //       ...state,
+  //       loading: false,
+  //       error: action.payload
+  //     }
+  //   default :
+  //     return state;
+  // }
+  return {...state}
 }
 
 export default userReducer;

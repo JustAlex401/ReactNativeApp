@@ -10,7 +10,7 @@ import globalStyles from '../../../assets/styles';
 import { Input } from 'react-native-elements';
 import { Icon } from 'react-native-elements'
 
-const LogInView = ({isKeyboardOpen}) => {
+const LogInView = ({isKeyboardOpen, userLogInData, setUserLogInData, handleLogIn}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <View style={styles.content}>
@@ -24,6 +24,7 @@ const LogInView = ({isKeyboardOpen}) => {
             labelStyle={styles.inputLabelStyle} 
             style={styles.input} 
             containerStyle={styles.inputContainer}
+            onChangeText={value => setUserLogInData({...userLogInData, email: value})}
           />
           <Input 
             placeholder="Password" 
@@ -32,6 +33,7 @@ const LogInView = ({isKeyboardOpen}) => {
             style={styles.input} 
             containerStyle={styles.inputContainer}
             secureTextEntry={true} 
+            onChangeText={value => setUserLogInData({...userLogInData, password: value})}
           />
         </View>
         <View style={styles.forgotPasswordView}>
@@ -41,7 +43,11 @@ const LogInView = ({isKeyboardOpen}) => {
         </View>
         <View style={styles.logInView}>
           <View style={styles.buttonSize}>
-            <TouchableOpacity style={styles.logIn} onPress={() => console.log('LogIn')}>
+            <TouchableOpacity 
+              disabled={userLogInData.email && userLogInData.password ? false : true} 
+              style={styles.logIn} 
+              onPress={handleLogIn}
+            >
               <CustomText style={styles.logInText}>LOGIN</CustomText>
             </TouchableOpacity>
           </View>

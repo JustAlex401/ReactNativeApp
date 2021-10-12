@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Keyboard } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { loginUser } from './actions';
 import LogInView from './LogInView';
 
 const LogInScreen = (props) => {
 
   const [isKeyboardOpen, setKeyboardStatus] = useState(false);
+  const [userLogInData, setUserLogInData] = useState({
+    email: '',
+    password: ''
+  });
+  const dispatch = useDispatch();
+
+  const handleLogIn = () => {
+    dispatch(loginUser(userLogInData));
+  };
 
   useEffect(() => {
     const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
@@ -22,7 +33,12 @@ const LogInScreen = (props) => {
 
 
   return (
-    <LogInView isKeyboardOpen={isKeyboardOpen}/>
+    <LogInView 
+      isKeyboardOpen={isKeyboardOpen} 
+      userLogInData={userLogInData} 
+      setUserLogInData={setUserLogInData}
+      handleLogIn={handleLogIn}
+    />
   )
 };
 
