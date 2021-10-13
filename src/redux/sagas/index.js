@@ -1,9 +1,9 @@
 import { all } from 'redux-saga/effects';
-import sagaExample from './sagaExample';
+import userSaga from './userSaga';
 
 const Sagas = function*(){
   yield all([
-    sagaExample()
+    userSaga()
   ]);
 }
 

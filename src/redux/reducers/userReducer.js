@@ -1,5 +1,5 @@
-import { LOGOUT_USER } from "../../components/UserProfile/constants";
-import { LOGIN_USER } from "../../screens/LogIn/constants";
+import { LOGOUT_USER, LOGOUT_USER_FAILURE, LOGOUT_USER_SUCCESS } from "../../components/UserProfile/constants";
+import { LOGIN_USER, LOGIN_USER_FAILURE, LOGIN_USER_SUCCESS } from "../../screens/LogIn/constants";
 
 const initialState = {
   data: {},
@@ -8,21 +8,48 @@ const initialState = {
 };
 
 function userReducer(state = initialState, action) {
+  console.log('ACTION', action);
   switch (action.type) {
-    case LOGIN_USER:
+    case LOGIN_USER: 
       return {
+        ...state,
+        loading: true,
+        error: null
+      }
+    case LOGIN_USER_SUCCESS:
+      return {
+        ...state,
         data: {
           emai: action.payload.email,
-          token: action.payload.password
+          token: action.payload.token
         },
         loading: false,
         error: null
       }
+    case LOGIN_USER_FAILURE: 
+      return {
+        ...state,
+        error: action.payload,
+        loading: false
+      }
     case LOGOUT_USER:
       return {
-        data: {},
+        ...state,
         loading: true,
         error: null
+      }
+    case LOGOUT_USER_SUCCESS:
+      return {
+        ...state,
+        data: {},
+        loading: false,
+        error: null
+      }
+    case LOGOUT_USER_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
       }
     default :
       return state;
