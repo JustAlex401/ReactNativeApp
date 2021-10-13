@@ -1,34 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import AppStack from './stack/AppStack';
 import AuthStack from './stack/AuthStack';
 import { useSelector } from 'react-redux';
+import { StatusBar } from 'react-native';
+import globalStyles from '../../assets/styles';
 
 const Stack = createStackNavigator();
 
 const Navigator = () => {
 
-  const token = useSelector(state => {
-    console.log(state);
-    return state?.userReducer?.user?.data?.token});
+  const token = useSelector(state => state?.userReducer?.data?.token);
 
   return (
-    <Stack.Navigator >
-      {token ? 
-          <Stack.Screen
-            name="App"
-            component={AppStack}
-            options={{headerShown: false}}
-          />
-        :
-          <Stack.Screen
-            name="Auth"
-            component={AuthStack}
-            options={{headerShown: false}}
-          />
-      }
-    </Stack.Navigator>
+    <>
+      <StatusBar
+        backgroundColor={globalStyles.themeColor}
+      />
+      <Stack.Navigator >
+        {token ? 
+            <Stack.Screen
+              name="App"
+              component={AppStack}
+              options={{headerShown: false}}
+            />
+          :
+            <Stack.Screen
+              name="Auth"
+              component={AuthStack}
+              options={{headerShown: false}}
+            />
+        }
+      </Stack.Navigator>
+    </>
   );
 };
 

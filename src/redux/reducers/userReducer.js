@@ -1,5 +1,5 @@
-import { LOGOUT_USER, LOGOUT_USER_FAILURE, LOGOUT_USER_SUCCESS } from "../../components/UserProfile/constants";
-import { LOGIN_USER, LOGIN_USER_FAILURE, LOGIN_USER_SUCCESS } from "../../screens/LogIn/constants";
+import { LOGOUT_USER } from "../../components/UserProfile/constants";
+import { LOGIN_USER } from "../../screens/LogIn/constants";
 
 const initialState = {
   data: {},
@@ -8,53 +8,25 @@ const initialState = {
 };
 
 function userReducer(state = initialState, action) {
-  // switch (action.type) {
-  //   case LOGIN_USER:
-  //     return {
-  //       ...state,
-  //       loading: true,
-  //       error: null
-  //     }
-  //   case LOGIN_USER_SUCCESS:
-  //     return {
-  //       ...state,
-  //       loading: false,
-  //       data: {
-  //         email: action.payload.email,
-  //         token: action.payload.password
-  //       }
-  //     }
-  //   case LOGIN_USER_FAILURE:
-  //     return {
-  //       ...state,
-  //       loading: false,
-  //       error: action.payload
-  //     }
-  //   case LOGOUT_USER:
-  //     return {
-  //       ...state,
-  //       loading: true,
-  //       error: null
-  //     }
-  //   case LOGOUT_USER_SUCCESS:
-  //     return {
-  //       ...state,
-  //       loading: false,
-  //       data: {
-  //         email: '',
-  //         token: ''
-  //       }
-  //     }
-  //   case LOGOUT_USER_FAILURE:
-  //     return {
-  //       ...state,
-  //       loading: false,
-  //       error: action.payload
-  //     }
-  //   default :
-  //     return state;
-  // }
-  return {...state}
+  switch (action.type) {
+    case LOGIN_USER:
+      return {
+        data: {
+          emai: action.payload.email,
+          token: action.payload.password
+        },
+        loading: false,
+        error: null
+      }
+    case LOGOUT_USER:
+      return {
+        data: {},
+        loading: true,
+        error: null
+      }
+    default :
+      return state;
+  }
 }
 
 export default userReducer;
