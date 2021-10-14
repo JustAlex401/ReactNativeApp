@@ -8,7 +8,6 @@ const initialState = {
 };
 
 function userReducer(state = initialState, action) {
-  console.log('ACTION', action);
   switch (action.type) {
     case LOGIN_USER: 
       return {
@@ -53,7 +52,7 @@ function userReducer(state = initialState, action) {
       }
     default :
       return state;
-  }
-}
+  };
+};
 
 export default userReducer;

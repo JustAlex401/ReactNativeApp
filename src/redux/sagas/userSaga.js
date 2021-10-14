@@ -17,7 +17,7 @@ export function* logInUser(action) {
   } catch (error) {
     yield put({ type: LOGIN_USER_FAILURE, payload: error.message });
   }
-}
+};
 
 export function* logOutUser(action) {
   try{
@@ -28,11 +28,11 @@ export function* logOutUser(action) {
   } catch (error) {
     yield put({ type: LOGOUT_USER_FAILURE, payload: error.message });
   }
-}
+};
 
 const userSaga = function* () {
   yield takeEvery(LOGIN_USER, logInUser);
   yield takeEvery(LOGOUT_USER, logOutUser);
-}
+};
 
 export default userSaga;

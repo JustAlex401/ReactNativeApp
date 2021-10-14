@@ -5,6 +5,6 @@ const Sagas = function*(){
   yield all([
     userSaga()
   ]);
-}
+};
 
 export default Sagas;
