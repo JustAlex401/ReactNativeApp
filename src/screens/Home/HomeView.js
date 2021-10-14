@@ -12,7 +12,7 @@ import Header from '../../components/Header';
 import UserProfile from '../../components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
-const HomeView = ({handleOpenDrawer, handleNavigationToScreen}) => {
+const HomeView = ({handleOpenDrawer, handleNavigationToScreen, fullDate}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
@@ -21,16 +21,17 @@ const HomeView = ({handleOpenDrawer, handleNavigationToScreen}) => {
             <Image source={require('../../../assets/icons/burgerMenuIcon.png')} style={styles.iconSize}/>
           </TouchableOpacity>
         }
-        title='Home' 
+        center={
+          <Image source={require('../../../assets/icons/logo.png')}/>
+        } 
         right={
           <UserProfile/>
         }
       />
-      <View style={globalStyles.sectionContainer}>
-        <CustomText>Home</CustomText>
-        <Button title="Go to about" onPress={() => handleNavigationToScreen('AboutScreen')}/>
-        <Button title="Go to savings" onPress={() => handleNavigationToScreen('SavingsScreen', {subtitle: 'SavingsScreen'})}/>
-        <Button title="Go to checking" onPress={() => handleNavigationToScreen('CheckingScreen', {subtitle: 'CheckingScreen'})}/>
+      <View style={[globalStyles.sectionContainer, globalStyles.flex]}>
+        <CustomText style={styles.dateText}>{fullDate.dayPart} Danny | {fullDate.month} {fullDate.day}, {fullDate.year}</CustomText>
+        {/* <Button title="Go to savings" onPress={() => handleNavigationToScreen('SavingsScreen', {subtitle: 'SavingsScreen'})}/>
+        <Button title="Go to checking" onPress={() => handleNavigationToScreen('CheckingScreen', {subtitle: 'CheckingScreen'})}/> */}
       </View>
     </SafeAreaView>
   );
@@ -40,6 +41,10 @@ const styles = EStyleSheet.create({
   iconSize: {
     width: 15,
     height: 15
+  }, 
+  dateText: {
+    color: globalStyles.defaultColor,
+    fontSize: 14
   }
 });
 
