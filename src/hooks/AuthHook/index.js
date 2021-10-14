@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 
 const useAuth = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
-  const token = useSelector(state => state?.userReducer?.data?.token);
+  const {token, error} = useSelector(state => state?.userReducer?.data);
 
   useEffect(() => {
-    if(token) {
+    if(token && !error) {
       setIsSignedIn(true);
     } else {
       setIsSignedIn(false);

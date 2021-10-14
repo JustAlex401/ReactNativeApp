@@ -17,7 +17,8 @@ const LogInView = ({
   validateEmail, 
   emailIsInvalide,
   validatePassword,
-  passwordIsInvalide
+  passwordIsInvalide,
+  loginError
 }) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
@@ -49,6 +50,13 @@ const LogInView = ({
             <CustomText style={styles.forgotPassword}>FORGOT PASSWORD</CustomText>
           </TouchableOpacity>
         </View>
+        {loginError ? 
+            <View style={styles.errorMessage}>
+              <CustomText style={{color: globalStyles.themeColor, fontSize: 15}}>{loginError}</CustomText>
+            </View>
+          :
+            null
+        }
         <View style={styles.logInView}>
           <View style={styles.buttonSize}>
             <Button 
@@ -175,6 +183,12 @@ const styles = EStyleSheet.create({
   disabledButton: {
     borderWidth: 1,
     borderColor: '#A0A0A0'
+  },
+  errorMessage: {
+    flex: 0, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    marginTop: 10
   }
 });
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Keyboard } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from './actions';
 import LogInView from './LogInView';
 
@@ -15,6 +15,7 @@ const LogInScreen = (props) => {
   const [loading, setLoading] = useState(false);
   const [emailIsInvalide, setEmailIsInvalide] = useState(false);
   const [passwordIsInvalide, setPasswordIsInvalide] = useState(false);
+  const loginError = useSelector(state => state?.userReducer?.error);
 
   const handleLogIn = () => {
     setLoading(true);
@@ -75,6 +76,7 @@ const LogInScreen = (props) => {
       emailIsInvalide={emailIsInvalide}
       validatePassword={validatePassword}
       passwordIsInvalide={passwordIsInvalide}
+      loginError={loginError}
     />
   )
 };
