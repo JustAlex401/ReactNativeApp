@@ -7,10 +7,19 @@ import {
 import EStyleSheet from 'react-native-extended-stylesheet';
 import CustomText from '../../components/CustomText';
 import globalStyles from '../../../assets/styles';
-import { Input } from 'react-native-elements';
-import { Icon } from 'react-native-elements'
+import { Button, Input, Icon } from 'react-native-elements';
 
-const LogInView = ({isKeyboardOpen}) => {
+const LogInView = ({
+  isKeyboardOpen, 
+  userLogInData,
+  handleLogIn, 
+  loading, 
+  validateEmail, 
+  emailIsInvalide,
+  validatePassword,
+  passwordIsInvalide,
+  loginError
+}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <View style={styles.content}>
@@ -21,9 +30,10 @@ const LogInView = ({isKeyboardOpen}) => {
           <Input 
             placeholder="Your email address" 
             label="Email" 
-            labelStyle={styles.inputLabelStyle} 
+            labelStyle={styles.inputLabelStyle}
             style={styles.input} 
             containerStyle={styles.inputContainer}
+            onChangeText={email => validateEmail(email)}
           />
           <Input 
             placeholder="Password" 
@@ -32,6 +42,7 @@ const LogInView = ({isKeyboardOpen}) => {
             style={styles.input} 
             containerStyle={styles.inputContainer}
             secureTextEntry={true} 
+            onChangeText={password => validatePassword(password)}
           />
         </View>
         <View style={styles.forgotPasswordView}>
@@ -39,11 +50,24 @@ const LogInView = ({isKeyboardOpen}) => {
             <CustomText style={styles.forgotPassword}>FORGOT PASSWORD</CustomText>
           </TouchableOpacity>
         </View>
+        {loginError ? 
+            <View style={styles.errorMessage}>
+              <CustomText style={{color: globalStyles.themeColor, fontSize: 15}}>{loginError}</CustomText>
+            </View>
+          :
+            null
+        }
         <View style={styles.logInView}>
           <View style={styles.buttonSize}>
-            <TouchableOpacity style={styles.logIn} onPress={() => console.log('LogIn')}>
-              <CustomText style={styles.logInText}>LOGIN</CustomText>
-            </TouchableOpacity>
+            <Button 
+              buttonStyle={styles.logIn} 
+              disabledStyle={styles.disabledButton}
+              titleStyle={styles.logInText}
+              disabled={userLogInData.email && userLogInData.password && !emailIsInvalide && !passwordIsInvalide ? false : true}
+              title='LOGIN'
+              onPress={handleLogIn}
+              loading={loading}
+            />
           </View>
         </View>
         {isKeyboardOpen ? 
@@ -94,7 +118,7 @@ const styles = EStyleSheet.create({
   },
   inputLabelStyle: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   inputContainer: {
     paddingHorizontal: 0
@@ -116,10 +140,7 @@ const styles = EStyleSheet.create({
     height: 40, width: '100%'
   },
   logIn: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
+    height: 40,
     backgroundColor: globalStyles.themeColor,
     borderRadius: 20
   },
@@ -158,6 +179,16 @@ const styles = EStyleSheet.create({
   },
   logInWaysButtonText: {
     fontSize: 12
+  },
+  disabledButton: {
+    borderWidth: 1,
+    borderColor: '#A0A0A0'
+  },
+  errorMessage: {
+    flex: 0, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    marginTop: 10
   }
 });
 

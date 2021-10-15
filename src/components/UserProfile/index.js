@@ -2,11 +2,18 @@
 import React, { useState } from 'react';
 import { Image, Modal, SafeAreaView, TouchableOpacity, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { useDispatch } from 'react-redux';
 import CustomText from '../CustomText';
+import { logoutUser } from './actions';
 
 export default UserProfile = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    dispatch(logoutUser());
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -22,7 +29,7 @@ export default UserProfile = () => {
         <TouchableOpacity onPressOut={() => setModalVisible(false)} style={styles.modalView}>
           <View style={styles.modal}>
             <View style={styles.modalContentView}>
-              <TouchableOpacity onPress={() => setModalVisible(false)}>
+              <TouchableOpacity onPress={handleLogOut}>
                 <CustomText>Log out</CustomText>
               </TouchableOpacity>
             </View>
