@@ -2,15 +2,16 @@ import React from 'react';
 import {
   SafeAreaView,
   View,
-  Button,
   TouchableOpacity,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import CustomText from '../../components/CustomText';
 import Header from '../../components/Header';
 import UserProfile from '../../components/UserProfile';
 import globalStyles from '../../../assets/styles';
+import AccountsOverviewCard from '../../components/AccountsOverviewCard';
 
 const HomeView = ({handleOpenDrawer, handleNavigationToScreen, fullDate, username}) => {
   return (
@@ -22,17 +23,20 @@ const HomeView = ({handleOpenDrawer, handleNavigationToScreen, fullDate, usernam
           </TouchableOpacity>
         }
         center={
-          <Image source={require('../../../assets/icons/logo.png')}/>
+          <Image style={styles.logoIcon} source={require('../../../assets/icons/logo.png')}/>
         } 
         right={
           <UserProfile/>
         }
       />
-      <View style={[globalStyles.sectionContainer, globalStyles.flex]}>
-        <CustomText style={styles.dateText}>{fullDate.dayPart} {username} | {fullDate.month} {fullDate.day}, {fullDate.year}</CustomText>
-        {/* <Button title="Go to savings" onPress={() => handleNavigationToScreen('SavingsScreen', {subtitle: 'SavingsScreen'})}/>
-        <Button title="Go to checking" onPress={() => handleNavigationToScreen('CheckingScreen', {subtitle: 'CheckingScreen'})}/> */}
-      </View>
+      <SafeAreaView style={globalStyles.flex}>
+        <ScrollView style={styles.scrollView}>
+          <View style={styles.paddingVertical}>
+            <CustomText style={styles.dateText}>{fullDate.dayPart} {username} | {fullDate.month} {fullDate.day}, {fullDate.year}</CustomText>
+            <AccountsOverviewCard handleNavigationToScreen={handleNavigationToScreen}/>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     </SafeAreaView>
   );
 };
@@ -43,8 +47,18 @@ const styles = EStyleSheet.create({
     height: 15
   }, 
   dateText: {
-    color: globalStyles.defaultColor,
+    color: '#696969',
     fontSize: 14
+  },
+  logoIcon: {
+    width: 65,
+    height: 35
+  },
+  scrollView: {
+    paddingHorizontal: 10
+  },
+  paddingVertical: {
+    paddingVertical: 10
   }
 });
 
