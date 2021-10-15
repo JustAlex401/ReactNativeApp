@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import HomeView from './HomeView';
 import moment from 'moment';
+import { useSelector } from 'react-redux';
 
 const DAYPART = ['Good Morning', 'Good Afternoon', 'Good Evening'];
 
@@ -12,6 +13,7 @@ const HomeScreen = (props) => {
     year: '',
     dayPart: ''
   });
+  const username = useSelector(state => state?.userReducer?.data?.name);
 
   useEffect(() => {
     let currentDate = moment()
@@ -43,6 +45,7 @@ const HomeScreen = (props) => {
       handleOpenDrawer={handleOpenDrawer} 
       handleNavigationToScreen={handleNavigationToScreen}
       fullDate={fullDate}
+      username={username}
     />
   );
 };

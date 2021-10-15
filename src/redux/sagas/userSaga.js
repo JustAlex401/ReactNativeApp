@@ -13,7 +13,8 @@ export function* logInUser(action) {
       type: LOGIN_USER_SUCCESS,
       payload: {
         email: action.payload.email,
-        token: token
+        token: token,
+        name: 'Alex'
       },
     });
   } catch (error) {
