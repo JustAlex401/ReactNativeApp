@@ -13,15 +13,28 @@ import UserProfile from '../../components/UserProfile';
 import globalStyles from '../../../assets/styles';
 import AccountsOverviewCard from '../../components/AccountsOverviewCard';
 import faker from 'faker';
+import GivingCard from '../../components/GivingCard';
 
 const HomeView = ({handleOpenDrawer, handleNavigationToScreen, fullDate, username}) => {
 
   const cardList = [
     {
-      id: faker.datatype.uuid()
+      id: faker.datatype.uuid(),
+      message: 'Danny, Your donation helped 5 amazing kids get much needed cancer surgery, thanks forbeing amazing!',
+      title: 'Your Giving Impact',
+      subtitle: 'St Jude . 4 hrs ago'
     },
     {
-      id: faker.datatype.uuid()
+      id: faker.datatype.uuid(),
+      message: 'Danny, Your donation helped 5 amazing kids get much needed cancer surgery, thanks forbeing amazing!',
+      title: 'Your Giving Impact',
+      subtitle: 'St Jude . 4 hrs ago'
+    },
+    {
+      id: faker.datatype.uuid(),
+      message: 'Danny, Your donation helped 5 amazing kids get much needed cancer surgery, thanks forbeing amazing!',
+      title: 'Your Giving Impact',
+      subtitle: 'St Jude . 4 hrs ago'
     }
   ];
 
@@ -52,7 +65,7 @@ const HomeView = ({handleOpenDrawer, handleNavigationToScreen, fullDate, usernam
         keyExtractor={item => item.id}
         renderItem={({item, index}) => {
           return (
-            <></>
+            <GivingCard key={index} item={item} index={index}/>
           )
         }}
       />
