@@ -19,6 +19,9 @@ const HomeView = ({handleOpenDrawer, handleNavigationToScreen, fullDate, usernam
   const cardList = [
     {
       id: faker.datatype.uuid()
+    },
+    {
+      id: faker.datatype.uuid()
     }
   ];
 

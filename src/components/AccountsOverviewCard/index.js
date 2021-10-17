@@ -1,11 +1,42 @@
 import React from 'react';
 import { View } from 'react-native';
+import faker from 'faker';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import globalStyles from '../../../assets/styles';
 import CustomText from '../CustomText';
 import CardAction from './CardAction';
 
 export default AccountsOverviewCard = ({handleNavigationToScreen}) => {
+
+  const cardActions = [
+    {
+      id: faker.datatype.uuid(),
+      title:'Checking',
+      subtitle:'Main account (...0353)',
+      amount:'1,500',
+      fractionalPartOfTheAmount:'20',
+      navigationScreenName:'CheckingScreen',
+      routerParam:{subtitle: 'CheckingScreen'}
+    },
+    {
+      id: faker.datatype.uuid(),
+      title:'Savings',
+      subtitle:'Buy a house (...4044)',
+      amount:'5,000',
+      fractionalPartOfTheAmount:'20',
+      navigationScreenName:'SavingsScreen',
+      routerParam:{subtitle: 'SavingsScreen'}
+    },
+    {
+      id: faker.datatype.uuid(),
+      title:'Goodness',
+      subtitle:'Cash Rewards',
+      amount:'500',
+      fractionalPartOfTheAmount:'40',
+      navigationScreenName:'Giving',
+    }
+  ];
+
   return (
     <View style={styles.rootContainer}>
       <View style={styles.titleContainer}>
@@ -19,34 +50,16 @@ export default AccountsOverviewCard = ({handleNavigationToScreen}) => {
         <CustomText style={styles.subtitle}>Total Available cash</CustomText>
       </View>
       <View style={styles.cardsContainer}>
-        <CardAction 
-          title='Checking' 
-          subtitle='Main account (...0353)'
-          amount='1,500'
-          fractionalPartOfTheAmount='20'
-          handleNavigationToScreen={handleNavigationToScreen}
-          navigationScreenName='CheckingScreen'
-          routerParam={{subtitle: 'CheckingScreen'}}
-        />
-        <CardAction 
-          title='Savings' 
-          subtitle='Buy a house (...4044)'
-          amount='5,000'
-          fractionalPartOfTheAmount='20'
-          handleNavigationToScreen={handleNavigationToScreen}
-          navigationScreenName='SavingsScreen'
-          routerParam={{subtitle: 'SavingsScreen'}}
-        />
-        <CardAction 
-          title='Goodness' 
-          subtitle='Cash Rewards'
-          amount='500'
-          fractionalPartOfTheAmount='40'
-          handleNavigationToScreen={handleNavigationToScreen}
-          navigationScreenName='Giving'
-          isHeartNeed={true}
-          isTheLastCard={true}
-        />
+        {
+          cardActions.map((item, index) => (
+            <CardAction 
+              item={item} 
+              key={index} 
+              index={index} 
+              handleNavigationToScreen={handleNavigationToScreen}
+            />
+          ))
+        }
       </View>
     </View>
   );
@@ -60,7 +73,7 @@ const styles = EStyleSheet.create({
     borderColor: globalStyles.defaultColor,
     backgroundColor: 'white',
     marginTop: 15,
-    height: 330,
+    height: 350,
   },
   titleContainer: {
     flex: 0, 
@@ -70,8 +83,8 @@ const styles = EStyleSheet.create({
   },
   cardsContainer: {
     flex: 1, 
+    flexDirection: 'column',
     justifyContent: 'center', 
-    alignItems: 'center'
   },
   title: {
     fontSize: 19,
