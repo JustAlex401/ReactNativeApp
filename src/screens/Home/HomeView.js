@@ -40,10 +40,10 @@ const HomeView = ({handleOpenDrawer, handleNavigationToScreen, fullDate, usernam
       <FlatList
         style={styles.paddingHorizontal}
         ListHeaderComponent={
-          <>
+          <View>
             <CustomText style={styles.dateText}>{fullDate.dayPart} {username} | {fullDate.month} {fullDate.day}, {fullDate.year}</CustomText>
             <AccountsOverviewCard handleNavigationToScreen={handleNavigationToScreen}/>
-          </>
+          </View>
         }
         data={cardList}
         keyExtractor={item => item.id}
