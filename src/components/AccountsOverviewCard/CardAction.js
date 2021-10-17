@@ -77,7 +77,7 @@ const styles = EStyleSheet.create({
     fontSize: 15
   },
   subtitle: {
-    fontSize: 12.5,
+    fontSize: 14,
     color: globalStyles.defaultColor
   },
   amount: {

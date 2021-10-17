@@ -60,7 +60,7 @@ const styles = EStyleSheet.create({
     borderColor: globalStyles.defaultColor,
     backgroundColor: 'white',
     marginTop: 15,
-    height: 320,
+    height: 330,
   },
   titleContainer: {
     flex: 0, 
@@ -75,7 +75,8 @@ const styles = EStyleSheet.create({
   },
   title: {
     fontSize: 19,
-    marginBottom: 10
+    marginBottom: 10,
+    marginTop: 10
   },
   generalAmount: {
     fontSize: 27
