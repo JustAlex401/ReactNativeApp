@@ -95,11 +95,12 @@ const LogInView = ({
 const styles = EStyleSheet.create({
   title: {
     fontWeight: 'bold',
-    fontSize: 26,
-    marginBottom: 6
+    fontSize: 24,
+    marginBottom: 6,
+    lineHeight: 30
   },
   titleView: {
-    width: 68,
+    width: 62,
     borderBottomWidth: 2,
     borderBottomColor: globalStyles.themeColor
   },
@@ -114,10 +115,12 @@ const styles = EStyleSheet.create({
   },
   input: {
     padding: 0,
-    fontSize: 16
+    fontSize: 16,
+    lineHeight: 22
   },
   inputLabelStyle: {
     fontSize: 20,
+    lineHeight: 26,
     fontWeight: 'bold',
   },
   inputContainer: {
@@ -125,6 +128,7 @@ const styles = EStyleSheet.create({
   },
   forgotPassword: {
     fontSize: 12,
+    lineHeight: 18,
     fontWeight: 'bold',
     color: globalStyles.themeColor
   },
@@ -146,7 +150,8 @@ const styles = EStyleSheet.create({
   },
   logInText:{ 
     color: 'white',
-    fontSize: 14
+    fontSize: 14,
+    lineHeight: 20,
   },
   logInWaysView: {
     marginTop: 60, 
@@ -155,14 +160,15 @@ const styles = EStyleSheet.create({
     justifyContent: 'flex-end'
   },
   logInWaysText: {
-    fontSize: 15
+    fontSize: 16,
+    lineHeight: 22,
   },
   logInButtonsView: {
     flex: 1, 
     flexDirection: 'row', 
     alignItems: 'flex-end', 
     justifyContent: 'flex-end', 
-    marginTop: 55
+    marginTop: 50
   },
   logInWaysButton: {
     flex: 1, 
@@ -171,14 +177,15 @@ const styles = EStyleSheet.create({
     justifyContent: 'space-between', 
     borderWidth: 1, 
     borderRadius: 20, 
-    padding: 5, 
-    height: 35, 
-    marginHorizontal: 15, 
+    padding: 4, 
+    height: 34, 
+    marginHorizontal: 16, 
     maxWidth: 120, 
     paddingHorizontal: 20 
   },
   logInWaysButtonText: {
-    fontSize: 12
+    fontSize: 12,
+    lineHeight: 18,
   },
   disabledButton: {
     borderWidth: 1,

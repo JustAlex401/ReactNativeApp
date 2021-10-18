@@ -68,11 +68,11 @@ export default AccountsOverviewCard = ({handleNavigationToScreen}) => {
 const styles = EStyleSheet.create({
   rootContainer: {
     flex: 1,
-    borderRadius: 7,
+    borderRadius: 8,
     borderWidth: 0.5,
     borderColor: globalStyles.defaultColor,
     backgroundColor: 'white',
-    marginTop: 15,
+    marginTop: 14,
     height: 350,
   },
   titleContainer: {
@@ -87,18 +87,21 @@ const styles = EStyleSheet.create({
     justifyContent: 'center', 
   },
   title: {
-    fontSize: 19,
+    fontSize: 20,
+    lineHeight: 26,
     marginBottom: 10,
     marginTop: 10
   },
   generalAmount: {
-    fontSize: 27
+    fontSize: 26,
+    lineHeight: 32,
   },
   fractionalPartOfTheAmount: {
-    fontSize: 19
+    fontSize: 18
   },
   subtitle: {
     fontSize: 12,
+    lineHeight: 18,
     color: globalStyles.defaultColor
   }
 });

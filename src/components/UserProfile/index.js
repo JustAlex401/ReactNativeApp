@@ -42,8 +42,8 @@ export default UserProfile = () => {
 
 const styles = EStyleSheet.create({
   iconSize: {
-    width: 25,
-    height: 25,
+    width: 26,
+    height: 26,
     resizeMode: 'contain'
   },
   container: {

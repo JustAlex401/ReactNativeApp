@@ -2,8 +2,8 @@ module.exports = {
   themeColor: "#C71585",
   defaultColor: "#8e8e93",
   iconSize: {
-    width: 15,
-    height: 15,
+    width: 16,
+    height: 16,
     resizeMode: 'contain'
   },
   flex: {

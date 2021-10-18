@@ -86,17 +86,18 @@ const HomeView = ({
 
 const styles = EStyleSheet.create({
   iconSize: {
-    width: 15,
-    height: 15
+    width: 16,
+    height: 16
   }, 
   dateText: {
     color: '#696969',
     fontSize: 14,
+    lineHeight: 20,
     paddingTop: 10
   },
   logoIcon: {
-    width: 65,
-    height: 35
+    width: 64,
+    height: 36
   },
   paddingHorizontal: {
     paddingHorizontal: 10

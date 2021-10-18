@@ -35,10 +35,12 @@ export default CardAction = ({item, index, handleNavigationToScreen}) => {
 const styles = EStyleSheet.create({
   amount: {
     fontSize: 20,
-    paddingRight: 7
+    lineHeight: 26,
+    paddingRight: 8
   },
   fractionalPartOfTheAmount: {
-    fontSize: 15
+    fontSize: 16,
+    lineHeight: 22
   },
   opacityView: {
     flex: 1, 

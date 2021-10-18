@@ -50,28 +50,28 @@ export default GivingCard = ({
 const styles = EStyleSheet.create({
   rootContainer: {
     flex: 1,
-    borderRadius: 7,
+    borderRadius: 8,
     borderWidth: 0.5,
     borderColor: globalStyles.defaultColor,
     backgroundColor: 'white',
-    marginTop: 15,
-    height: 380,
+    marginTop: 14,
+    height: 400,
   },
   cardHeader: {
     flex: 1, 
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingHorizontal: 15
+    paddingHorizontal: 16
   },
   titleAndSubtitle: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'flex-start',
-    marginLeft: 15
+    marginLeft: 16
   },
   cardContent: {
-    flex: 2.8, 
+    flex: 3, 
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -84,7 +84,8 @@ const styles = EStyleSheet.create({
     marginTop: -10
   },
   footerMessage: {
-    fontSize: 15,
+    fontSize: 14,
+    lineHeight: 20,
     marginVertical: 10
   },
   touchableOpacity: {
@@ -96,17 +97,20 @@ const styles = EStyleSheet.create({
     height: 40,
     width: 300,
     backgroundColor: globalStyles.themeColor,
-    paddingHorizontal: 60
+    paddingHorizontal: 50
   },
   buttonText: {
     color: 'white',
-    fontSize: 13
+    fontSize: 14,
+    lineHeight: 20
   },
   title: {
-    fontSize: 16
+    fontSize: 16,
+    lineHeight: 22,
   },
   subtitle: {
-    fontSize: 13,
+    fontSize: 12,
+    lineHeight: 18,
     color: globalStyles.defaultColor
   },
   titleIcon: {
