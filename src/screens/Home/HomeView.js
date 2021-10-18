@@ -15,7 +15,13 @@ import AccountsOverviewCard from '../../components/AccountsOverviewCard';
 import faker from 'faker';
 import GivingCard from '../../components/GivingCard';
 
-const HomeView = ({handleOpenDrawer, handleNavigationToScreen, fullDate, username}) => {
+const HomeView = ({
+  handleOpenDrawer, 
+  handleNavigationToScreen, 
+  fullDate, 
+  username,
+  videoPause
+}) => {
 
   const cardList = [
     {
@@ -65,7 +71,12 @@ const HomeView = ({handleOpenDrawer, handleNavigationToScreen, fullDate, usernam
         keyExtractor={item => item.id}
         renderItem={({item, index}) => {
           return (
-            <GivingCard key={index} item={item} index={index}/>
+            <GivingCard
+              key={index} 
+              item={item} 
+              index={index}
+              videoPause={videoPause}
+            />
           )
         }}
       />

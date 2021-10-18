@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
+import Video from 'react-native-video';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import globalStyles from '../../../assets/styles';
 import CustomText from '../CustomText';
 
-export default GivingCard = ({item, index}) => {
+export default GivingCard = ({
+  item, 
+  index, 
+  videoPause
+}) => {
   return (
     <View style={styles.rootContainer}>
       <View style={styles.cardHeader}>
@@ -16,7 +21,15 @@ export default GivingCard = ({item, index}) => {
         </View>
       </View>
       <View style={styles.cardContent}>
-        
+        <Video
+          repeat
+          style={{width: '100%', height: '100%'}}
+          source={{uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"}}
+          paused={videoPause}
+          resizeMode='cover'
+          poster='https://lh3.googleusercontent.com/ZP-X9iqgIJFDvryltDu31NWOq8mMm60baIfAcaIlE0JsorRa5jFs2OrltfUIB7R9X-RF=s170'
+          muted={true}
+        />
       </View>
       <View style={styles.cardFooter}>
         <CustomText style={styles.footerMessage}>
@@ -42,7 +55,7 @@ const styles = EStyleSheet.create({
     borderColor: globalStyles.defaultColor,
     backgroundColor: 'white',
     marginTop: 15,
-    height: 350,
+    height: 380,
   },
   cardHeader: {
     flex: 1, 
@@ -58,7 +71,7 @@ const styles = EStyleSheet.create({
     marginLeft: 15
   },
   cardContent: {
-    flex: 2, 
+    flex: 2.8, 
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -67,7 +80,8 @@ const styles = EStyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 24
+    marginHorizontal: 24,
+    marginTop: -10
   },
   footerMessage: {
     fontSize: 15,
