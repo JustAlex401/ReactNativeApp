@@ -69,6 +69,7 @@ const styles = (isFocused) => EStyleSheet.create({
   },
   text: {
     fontSize: 10,
+    lineHeight: 16,
     color: isFocused ? globalStyles.themeColor : globalStyles.defaultColor
   }
 });

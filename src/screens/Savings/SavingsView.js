@@ -48,11 +48,13 @@ const styles = EStyleSheet.create({
   },
   title: {
     color: 'white', 
-    fontSize: 16
+    fontSize: 16,
+    lineHeight: 22
   },
   subtitle : {
     color: 'white', 
-    fontSize: 10
+    fontSize: 12,
+    lineHeight: 18,
   },
   centerHeader: {
     flex: 1,

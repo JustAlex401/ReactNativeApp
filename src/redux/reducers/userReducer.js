@@ -19,8 +19,7 @@ function userReducer(state = initialState, action) {
       return {
         ...state,
         data: {
-          emai: action.payload.email,
-          token: action.payload.token
+         ...action.payload
         },
         loading: false,
         error: null

@@ -48,7 +48,8 @@ const styles = EStyleSheet.create({
   }, 
   title: {
     color: 'white', 
-    fontSize: 16
+    fontSize: 16,
+    lineHeight: 22
   },
   subtitle : {
     color: 'white', 

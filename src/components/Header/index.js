@@ -30,7 +30,7 @@ const styles = EStyleSheet.create({
   },
   container: {
     flex: 0,
-    height: 45,
+    height: 46,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
@@ -57,6 +57,7 @@ const styles = EStyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 18
+    fontSize: 18,
+    lineHeight: 24
   }
 });
