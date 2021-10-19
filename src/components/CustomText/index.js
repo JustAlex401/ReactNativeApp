@@ -16,6 +16,6 @@ export default CustomText = ({children, style}) => {
 
 const styles = EStyleSheet.create({
   text: {
-    fontFamily: 'Cochin'
+    fontFamily: 'SFUIDisplay-Bold'
   }
 });
