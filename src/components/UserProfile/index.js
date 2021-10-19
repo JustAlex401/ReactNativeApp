@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import CustomText from '../CustomText';
 import { logoutUser } from './actions';
 
-export default UserProfile = () => {
+export default UserProfile = ({handleNavigationToScreen}) => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useDispatch();
@@ -29,6 +29,9 @@ export default UserProfile = () => {
         <TouchableOpacity onPressOut={() => setModalVisible(false)} style={styles.modalView}>
           <View style={styles.modal}>
             <View style={styles.modalContentView}>
+              <TouchableOpacity onPress={() => handleNavigationToScreen('ProfileScreen')}>
+                <CustomText>Profile</CustomText>
+              </TouchableOpacity>
               <TouchableOpacity onPress={handleLogOut}>
                 <CustomText>Log out</CustomText>
               </TouchableOpacity>
@@ -59,13 +62,14 @@ const styles = EStyleSheet.create({
     marginRight: 10
   },
   modal: {
-    height: 60, 
+    height: 100, 
     width: 100, 
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    paddingVertical: 20
   },
   modalContentView: {
     flex: 1, 
-    justifyContent: 'center', 
+    justifyContent: 'space-between', 
     alignItems: 'center'
   }
 });

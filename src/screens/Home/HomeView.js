@@ -56,7 +56,7 @@ const HomeView = ({
           <Image style={styles.logoIcon} source={require('../../../assets/icons/logo.png')}/>
         }
         right={
-          <UserProfile/>
+          <UserProfile handleNavigationToScreen={handleNavigationToScreen}/>
         }
       />
       <FlatList

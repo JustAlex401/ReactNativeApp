@@ -141,7 +141,8 @@ const styles = EStyleSheet.create({
     justifyContent: 'flex-end'
   },
   buttonSize: {
-    height: 40, width: '100%'
+    height: 40, 
+    width: '100%'
   },
   logIn: {
     height: 40,

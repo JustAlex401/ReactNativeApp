@@ -11,7 +11,7 @@ import Header from '../../components/Header';
 import UserProfile from '../../components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
-const PaymentsView = ({handleOpenDrawer}) => {
+const PaymentsView = ({handleOpenDrawer, handleNavigationToScreen}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
@@ -22,7 +22,7 @@ const PaymentsView = ({handleOpenDrawer}) => {
         }
         title='Payments' 
         right={
-          <UserProfile/>
+          <UserProfile handleNavigationToScreen={handleNavigationToScreen}/>
         }
       />
       <View style={globalStyles.sectionContainer}>

@@ -1,5 +1,6 @@
 import { LOGOUT_USER, LOGOUT_USER_FAILURE, LOGOUT_USER_SUCCESS } from "../../components/UserProfile/constants";
 import { LOGIN_USER, LOGIN_USER_FAILURE, LOGIN_USER_SUCCESS } from "../../screens/LogIn/constants";
+import { EDIT_PROFILE, EDIT_PROFILE_SUCCESS } from "../../screens/Profile/constants";
 
 const initialState = {
   data: {},
@@ -40,6 +41,28 @@ function userReducer(state = initialState, action) {
       return {
         ...state,
         data: {},
+        loading: false,
+        error: null
+      }
+    case LOGOUT_USER_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    case EDIT_PROFILE:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      }
+    case EDIT_PROFILE_SUCCESS:
+      return { 
+        ...state,
+        data: {
+          ...state.data,
+          ...action.payload
+        },
         loading: false,
         error: null
       }
