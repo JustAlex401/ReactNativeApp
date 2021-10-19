@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
-import { Button, Input } from 'react-native-elements';
+import { Button, Icon, Input } from 'react-native-elements';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import DatePicker from 'react-native-date-picker'
 import globalStyles from '../../../assets/styles';
@@ -19,7 +19,9 @@ const ProfileView = ({
   setEditProfileOpen,
   profileData,
   setProfileData,
-  handleEditProfile
+  handleEditProfile,
+  openCamera,
+  launchGallery
 }) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
@@ -74,6 +76,24 @@ const ProfileView = ({
             </View>
           :
             <View style={styles.content}>
+              <View style={styles.iconsView}>
+                <Image
+                  style={styles.avatarStyle}
+                  source={{uri: userData.avatar}}
+                />
+                <TouchableOpacity
+                  style={styles.buttonIcon}
+                  onPress={openCamera}
+                >
+                  <Icon type='evilicon' name='camera' color={globalStyles.themeColor}/>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.buttonIcon}
+                  onPress={launchGallery}
+                >
+                  <Icon type='antdesign' name='camera' color={globalStyles.themeColor}/>
+                </TouchableOpacity>
+              </View>
               <View style={styles.profileData}>
                 <View style={styles.data}>
                   <CustomText style={styles.fieldTitle}>Name: </CustomText>
@@ -197,6 +217,28 @@ const styles = EStyleSheet.create({
   },
   dob: {
     backgroundColor: globalStyles.themeColor
+  },
+  iconsView: {
+    flex: 0,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 34,
+    height: 100
+  },
+  avatarStyle: {
+    borderRadius: 1000, 
+    width: 80, 
+    height: 80, 
+    borderWidth: 2, 
+    borderColor: globalStyles.themeColor
+  },
+  buttonIcon: {
+    borderColor: globalStyles.themeColor, 
+    borderRadius: 100, 
+    borderWidth: 1,
+    padding: 4,
+    marginLeft: 15
   }
 });
 

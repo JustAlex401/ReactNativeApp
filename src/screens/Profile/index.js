@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { editProfile } from './actions';
+import { editProfile, saveAvatar } from './actions';
 import ProfileView from './ProfileView';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import requestCameraPermission from '../../utils/permissionsForCamera';
 
 const ProfileScreen = (props) => {
 
@@ -37,6 +39,48 @@ const ProfileScreen = (props) => {
     });
   };
 
+  const openCamera = () => {
+    requestCameraPermission();
+    let options = {
+      storageOptions: {
+        path: 'images',
+        mediaType: 'photo'
+      },
+      includeBase64: true
+    };
+    launchCamera(options, (response) => {
+      if(response.didCancel){
+        console.log('User cancelled image picker');
+      } else if (response.errorCode){
+        console.log('Response error' + response.errorCode + response.errorMessage);
+      } else {
+        const source = 'data:image/jpeg;base64,'+response.assets[0].base64;
+        dispatch(saveAvatar(source));
+      }
+    });
+  };
+
+  const launchGallery = () => {
+    requestCameraPermission();
+    let options = {
+      storageOptions: {
+        path: 'images',
+        mediaType: 'photo'
+      },
+      includeBase64: true
+    };
+    launchImageLibrary(options, (response) => {
+      if(response.didCancel){
+        console.log('User cancelled image picker');
+      } else if (response.errorCode){
+        console.log('Response error' + response.errorCode + response.errorMessage);
+      } else {
+        const source = 'data:image/jpeg;base64,'+response.assets[0].base64;
+        dispatch(saveAvatar(source));
+      }
+    });
+  };
+
   return (
     <ProfileView 
       handleNavigationGoBack={handleNavigationGoBack}
@@ -46,6 +90,8 @@ const ProfileScreen = (props) => {
       profileData={profileData}
       setProfileData={setProfileData}
       handleEditProfile={handleEditProfile}
+      openCamera={openCamera}
+      launchGallery={launchGallery}
     />
   )
 };
