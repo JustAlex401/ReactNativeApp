@@ -19,7 +19,7 @@ export default UserProfile = ({handleNavigationToScreen}) => {
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
-        <Image source={avatar ? {uri: avatar} : require('../../../assets/icons/oval.png')} style={avatar ? styles.avatar : styles.iconSize}/>
+        <Image source={avatar ? {uri: avatar} : require('../../../assets/icons/oval.png')} style={styles.avatar}/>
       </TouchableOpacity>
       <Modal
         animationType="fade"
@@ -45,11 +45,6 @@ export default UserProfile = ({handleNavigationToScreen}) => {
 };
 
 const styles = EStyleSheet.create({
-  iconSize: {
-    width: 26,
-    height: 26,
-    resizeMode: 'contain'
-  },
   avatar: {
     width: 26,
     height: 26,
