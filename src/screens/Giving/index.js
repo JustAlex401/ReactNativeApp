@@ -7,8 +7,15 @@ const GivingScreen = (props) => {
     props.navigation.openDrawer();
   };
 
+  const handleNavigationToScreen = (screenName, params) => {
+    props.navigation.navigate(screenName, params ? params : null);
+  };
+
   return (
-    <GivingView handleOpenDrawer={handleOpenDrawer}/>
+    <GivingView 
+      handleOpenDrawer={handleOpenDrawer}
+      handleNavigationToScreen={handleNavigationToScreen}
+    />
   );
 };
 

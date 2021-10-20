@@ -24,7 +24,7 @@ const AccountView = ({handleNavigationToScreen, handleOpenDrawer}) => {
         }
         title='Accounts' 
         right={
-          <UserProfile/>
+          <UserProfile handleNavigationToScreen={handleNavigationToScreen}/>
         }
       />
       <View style={globalStyles.sectionContainer}>

@@ -7,8 +7,15 @@ const PaymentsScreen = (props) => {
     props.navigation.openDrawer();
   };
 
+  const handleNavigationToScreen = (screenName, params) => {
+    props.navigation.navigate(screenName, params ? params : null);
+  };
+
   return (
-    <PaymentsView handleOpenDrawer={handleOpenDrawer}/>
+    <PaymentsView 
+      handleOpenDrawer={handleOpenDrawer}
+      handleNavigationToScreen={handleNavigationToScreen}
+    />
   )
 };
 

@@ -23,7 +23,7 @@ const AboutView = ({handleNavigationToScreen}) => {
         }
         title='About' 
         right={
-          <UserProfile/>
+          <UserProfile handleNavigationToScreen={handleNavigationToScreen}/>
         }
       />
       <View style={globalStyles.sectionContainer}>

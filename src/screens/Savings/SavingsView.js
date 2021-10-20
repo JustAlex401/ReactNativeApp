@@ -11,7 +11,7 @@ import Header from '../../components/Header';
 import UserProfile from '../../components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
-const SavingsView = ({subtitle, handleNavigationGoBack}) => {
+const SavingsView = ({subtitle, handleNavigationGoBack, handleNavigationToScreen}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
@@ -27,7 +27,7 @@ const SavingsView = ({subtitle, handleNavigationGoBack}) => {
           </View>
         }
         right={
-          <UserProfile/>
+          <UserProfile handleNavigationToScreen={handleNavigationToScreen}/>
         }
       />
       <View style={globalStyles.sectionContainer}>

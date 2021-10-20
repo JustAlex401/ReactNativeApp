@@ -7,8 +7,15 @@ const CardsScreen = (props) => {
     props.navigation.openDrawer();
   };
 
+  const handleNavigationToScreen = (screenName, params) => {
+    props.navigation.navigate(screenName, params ? params : null);
+  };
+
   return (
-    <CardsView handleOpenDrawer={handleOpenDrawer}/>
+    <CardsView 
+      handleOpenDrawer={handleOpenDrawer}
+      handleNavigationToScreen={handleNavigationToScreen}
+    />
   );
 };
 

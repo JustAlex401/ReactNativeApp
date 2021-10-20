@@ -11,7 +11,7 @@ import Header from '../../components/Header';
 import UserProfile from '../../components/UserProfile';
 import globalStyles from '../../../assets/styles';
 
-const GivingView = ({handleOpenDrawer}) => {
+const GivingView = ({handleOpenDrawer, handleNavigationToScreen}) => {
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
@@ -22,7 +22,7 @@ const GivingView = ({handleOpenDrawer}) => {
         }
         title='Giving' 
         right={
-          <UserProfile/>
+          <UserProfile handleNavigationToScreen={handleNavigationToScreen}/>
         }
       />
       <View style={globalStyles.sectionContainer}>

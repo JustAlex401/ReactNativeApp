@@ -7,8 +7,16 @@ const CheckingScreen = (props) => {
     props.navigation.goBack();
   };
 
+  const handleNavigationToScreen = (screenName, params) => {
+    props.navigation.navigate(screenName, params ? params : null);
+  };
+
   return (
-    <CheckingView subtitle={props.route.params.subtitle} handleNavigationGoBack={handleNavigationGoBack}/>
+    <CheckingView 
+      subtitle={props.route.params.subtitle} 
+      handleNavigationGoBack={handleNavigationGoBack}
+      handleNavigationToScreen={handleNavigationToScreen}
+    />
   );
 };
 

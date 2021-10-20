@@ -8,6 +8,7 @@ import { HomeStack, AccountsStack, GivingStack, PaymentsStack, CardsStack} from 
 import DrawerMenu from '../../../components/DrawerMenu';
 import SavingsScreen from '../../../screens/Savings';
 import CheckingScreen from '../../../screens/Checking';
+import ProfileScreen from '../../../screens/Profile';
 import TabBar from '../../../components/TabBar';
 
 const Tab = createBottomTabNavigator();
@@ -66,6 +67,11 @@ const DrawerStack = () => {
       <Drawer.Screen
         name="CheckingScreen"
         component={CheckingScreen}
+        options={{headerShown: false}}
+      />
+      <Drawer.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
         options={{headerShown: false}}
       />
     </Drawer.Navigator>
