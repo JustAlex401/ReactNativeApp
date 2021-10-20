@@ -14,8 +14,7 @@ export function* logInUser(action) {
       type: LOGIN_USER_SUCCESS,
       payload: {
         email: action.payload.email,
-        token: token,
-        name: 'Alex'
+        token: token
       },
     });
   } catch (error) {
@@ -27,7 +26,10 @@ export function* logOutUser(action) {
   try{
     yield call(AsyncStorage.removeItem, 'id_token');
     yield put({
-      type: LOGOUT_USER_SUCCESS
+      type: LOGOUT_USER_SUCCESS,
+      payload: {
+        token: ''
+      }
     });
   } catch (error) {
     yield put({ type: LOGOUT_USER_FAILURE, payload: error.message });

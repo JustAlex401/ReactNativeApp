@@ -20,7 +20,8 @@ function userReducer(state = initialState, action) {
       return {
         ...state,
         data: {
-         ...action.payload
+          ...state.data,
+          ...action.payload
         },
         loading: false,
         error: null
@@ -40,7 +41,10 @@ function userReducer(state = initialState, action) {
     case LOGOUT_USER_SUCCESS:
       return {
         ...state,
-        data: {},
+        data: {
+          ...state.data,
+          token: action.payload.token
+        },
         loading: false,
         error: null
       }
