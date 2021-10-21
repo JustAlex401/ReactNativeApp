@@ -7,7 +7,6 @@ import CustomText from '../CustomText';
 import CardAction from './CardAction';
 
 export default AccountsOverviewCard = ({handleNavigationToScreen}) => {
-
   const cardActions = [
     {
       id: faker.datatype.uuid(),
@@ -16,7 +15,8 @@ export default AccountsOverviewCard = ({handleNavigationToScreen}) => {
       amount:'1,500',
       fractionalPartOfTheAmount:'20',
       navigationScreenName:'CheckingScreen',
-      routerParam:{subtitle: 'CheckingScreen'}
+      routerParam:{subtitle: 'CheckingScreen'},
+      isBottomDividerNeed: true
     },
     {
       id: faker.datatype.uuid(),
@@ -25,7 +25,8 @@ export default AccountsOverviewCard = ({handleNavigationToScreen}) => {
       amount:'5,000',
       fractionalPartOfTheAmount:'20',
       navigationScreenName:'SavingsScreen',
-      routerParam:{subtitle: 'SavingsScreen'}
+      routerParam:{subtitle: 'SavingsScreen'},
+      isBottomDividerNeed: true
     },
     {
       id: faker.datatype.uuid(),
