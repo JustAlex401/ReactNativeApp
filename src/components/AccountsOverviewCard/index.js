@@ -15,7 +15,7 @@ export default AccountsOverviewCard = ({handleNavigationToScreen}) => {
       amount:'1,500',
       fractionalPartOfTheAmount:'20',
       navigationScreenName:'CheckingScreen',
-      routerParam:{subtitle: 'CheckingScreen'},
+      routerParam:{subtitle: 'Main account (...0353)'},
       isBottomDividerNeed: true
     },
     {
@@ -25,7 +25,7 @@ export default AccountsOverviewCard = ({handleNavigationToScreen}) => {
       amount:'5,000',
       fractionalPartOfTheAmount:'20',
       navigationScreenName:'SavingsScreen',
-      routerParam:{subtitle: 'SavingsScreen'},
+      routerParam:{subtitle: 'Buy a house (...4044)'},
       isBottomDividerNeed: true
     },
     {

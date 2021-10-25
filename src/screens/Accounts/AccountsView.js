@@ -24,7 +24,7 @@ const AccountView = ({handleNavigationToScreen, handleOpenDrawer}) => {
       amount:'1,500',
       fractionalPartOfTheAmount:'20',
       navigationScreenName:'CheckingScreen',
-      routerParam:{subtitle: 'CheckingScreen'}
+      routerParam:{subtitle: 'Main account (...0353)'}
     },
     {
       id: faker.datatype.uuid(),
@@ -33,7 +33,7 @@ const AccountView = ({handleNavigationToScreen, handleOpenDrawer}) => {
       amount:'5,000',
       fractionalPartOfTheAmount:'20',
       navigationScreenName:'SavingsScreen',
-      routerParam:{subtitle: 'SavingsScreen'},
+      routerParam:{subtitle: 'Buy a house (...4044)'},
       footer: (
         <View style={styles.cardFooter}>
           <Icon name='triangle-up' type='entypo' color='#32CD32'/>
