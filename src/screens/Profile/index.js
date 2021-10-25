@@ -4,6 +4,7 @@ import { editProfile, saveAvatar } from './actions';
 import ProfileView from './ProfileView';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import requestCameraPermission from '../../utils/permissionsForCamera';
+import { Platform } from 'react-native';
 
 const ProfileScreen = (props) => {
 
@@ -40,7 +41,9 @@ const ProfileScreen = (props) => {
   };
 
   const openCamera = () => {
-    requestCameraPermission();
+    if(Platform.OS !== 'ios'){
+      requestCameraPermission();
+    }
     let options = {
       storageOptions: {
         path: 'images',
@@ -61,7 +64,9 @@ const ProfileScreen = (props) => {
   };
 
   const launchGallery = () => {
-    requestCameraPermission();
+    if(Platform.OS !== 'ios'){
+      requestCameraPermission();
+    }
     let options = {
       storageOptions: {
         path: 'images',

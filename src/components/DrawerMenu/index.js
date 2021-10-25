@@ -29,7 +29,7 @@ const styles = EStyleSheet.create({
     borderColor: globalStyles.themeColor
   },
   drawerScroll: {
-    marginLeft: 6
+    marginHorizontal: 6
   }, 
   text: {
     textAlign: 'center',
