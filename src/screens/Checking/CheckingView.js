@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
-  TextInput
+  TextInput,
+  FlatList
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import CustomText from '../../components/CustomText';
@@ -13,6 +14,8 @@ import Header from '../../components/Header';
 import UserProfile from '../../components/UserProfile';
 import globalStyles from '../../../assets/styles';
 import { Button } from 'react-native-elements';
+import faker from 'faker';
+import CardAction from '../../components/AccountsOverviewCard/CardAction';
 
 const CURRENT_WIDTH = Dimensions.get('window').width;
 
@@ -24,6 +27,162 @@ const CheckingView = ({
   setFilterData,
   handleFilterData
 }) => {
+
+  const checkingList = [
+    {
+      id: faker.datatype.uuid(),
+      title: 'Jul 11',
+      cards: [
+        {
+          id: faker.datatype.uuid(),
+          title:'Target',
+          subtitle:'Closter NJ | Debit card',
+          amount:'63',
+          fractionalPartOfTheAmount:'95',
+          isBottomDividerNeed: true,
+          isChevronNeed: false,
+          isDisabled:true
+        },
+        {
+          id: faker.datatype.uuid(),
+          title:'Aplpay 7-Eleven',
+          subtitle:'Cresskill NJ | iPhone',
+          amount:'17',
+          fractionalPartOfTheAmount:'75',
+          isBottomDividerNeed: true,
+          isChevronNeed: false,
+          isDisabled:true
+        },
+        {
+          id: faker.datatype.uuid(),
+          generalIcon: (
+            <Image style={styles.generalIcon} source={require('../../../assets/icons/confetti2.png')}/>
+          ),
+          title:'Facebook inc',
+          subtitle:'Pay day! Yay!',
+          titleColorNeed: true,
+          subTitleColorNeed: true,
+          amountColorNeed: true,
+          amount:'1,200',
+          fractionalPartOfTheAmount:'50',
+          isBottomDividerNeed: true,
+          isChevronNeed: false,
+          isDisabled:true
+        },
+        {
+          id: faker.datatype.uuid(),
+          title:'Lencrafters',
+          subtitle:'Paramus NJ | Debit card',
+          amount:'320',
+          fractionalPartOfTheAmount:'73',
+          isBottomDividerNeed: false,
+          isChevronNeed: false,
+          isDisabled:true
+        }
+      ]
+    },
+    {
+      id: faker.datatype.uuid(),
+      title: 'Jul 10',
+      cards: [
+        {
+          id: faker.datatype.uuid(),
+          title:'Transfer from savings',
+          subtitle:'Buy a house (...4044)',
+          amount:'10,000',
+          fractionalPartOfTheAmount:'00',
+          isBottomDividerNeed: true,
+          isChevronNeed: false,
+          isDisabled:true,
+          titleColorNeed: true,
+          amountColorNeed: true
+        },
+        {
+          id: faker.datatype.uuid(),
+          title:'Starbucks',
+          subtitle:'Closter NJ | Debit card',
+          amount:'12',
+          fractionalPartOfTheAmount:'02',
+          isBottomDividerNeed: true,
+          isChevronNeed: false,
+          isDisabled: true
+        },
+        {
+          id: faker.datatype.uuid(),
+          title:'Stop and Shop',
+          subtitle:'Pay day! Yay!',
+          amount:'236',
+          fractionalPartOfTheAmount:'52',
+          isBottomDividerNeed: true,
+          isChevronNeed: false,
+          isDisabled: true
+        },
+        {
+          id: faker.datatype.uuid(),
+          title:'Lencrafters',
+          subtitle:'Paramus NJ | Debit card',
+          amount:'320',
+          fractionalPartOfTheAmount:'73',
+          isBottomDividerNeed: false,
+          isChevronNeed: false,
+          isDisabled:true
+        }
+      ]
+    },
+    {
+      id: faker.datatype.uuid(),
+      title: 'Jul 9',
+      cards: [
+        {
+          id: faker.datatype.uuid(),
+          title:'Target',
+          subtitle:'Closter NJ | Debit card',
+          amount:'63',
+          fractionalPartOfTheAmount:'95',
+          isBottomDividerNeed: true,
+          isChevronNeed: false,
+          isDisabled:true
+        },
+        {
+          id: faker.datatype.uuid(),
+          title:'Aplpay 7-Eleven',
+          subtitle:'Cresskill NJ | iPhone',
+          amount:'17',
+          fractionalPartOfTheAmount:'75',
+          isBottomDividerNeed: true,
+          isChevronNeed: false,
+          isDisabled:true
+        },
+        {
+          id: faker.datatype.uuid(),
+          generalIcon: (
+            <Image style={styles.generalIcon} source={require('../../../assets/icons/confetti2.png')}/>
+          ),
+          title:'Facebook inc',
+          subtitle:'Pay day! Yay!',
+          titleColorNeed: true,
+          subTitleColorNeed: true,
+          amountColorNeed: true,
+          amount:'1,200',
+          fractionalPartOfTheAmount:'50',
+          isBottomDividerNeed: true,
+          isChevronNeed: false,
+          isDisabled:true
+        },
+        {
+          id: faker.datatype.uuid(),
+          title:'Lencrafters',
+          subtitle:'Paramus NJ | Debit card',
+          amount:'320',
+          fractionalPartOfTheAmount:'73',
+          isBottomDividerNeed: false,
+          isChevronNeed: false,
+          isDisabled:true
+        }
+      ]
+    },
+  ];
+
   return (
     <SafeAreaView style={globalStyles.flex}>
       <Header 
@@ -42,7 +201,7 @@ const CheckingView = ({
           <UserProfile handleNavigationToScreen={handleNavigationToScreen}/>
         }
       />
-      <View style={globalStyles.sectionContainer}>
+      <View style={[globalStyles.sectionContainer, globalStyles.flex]}>
         <View style={styles.titleContainer}>
           <CustomText style={styles.generalAmount}>
             $7,000.
@@ -66,6 +225,31 @@ const CheckingView = ({
             disabled={!filterData}
             title='Filter by'
             onPress={handleFilterData}
+          />
+        </View>
+        <View style={styles.contentContainer}>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            legacyImplementation={false}
+            data={checkingList}
+            keyExtractor={(item) => item.id}
+            renderItem={({item, index}) => {
+              return (
+                <View key={index} style={styles.flatListView}>
+                  <CustomText>{item.title}</CustomText>
+                  {
+                    item.cards.map((item, index) => (
+                      <CardAction 
+                        item={item} 
+                        key={index} 
+                        index={index} 
+                        handleNavigationToScreen={handleNavigationToScreen}
+                      />
+                    ))
+                  }
+                </View>
+              )
+            }}
           />
         </View>
       </View>
@@ -98,7 +282,7 @@ const styles = EStyleSheet.create({
     justifyContent: 'center'
   },
   titleContainer: {
-    flex: 0, 
+    flex: 1, 
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -133,7 +317,7 @@ const styles = EStyleSheet.create({
     borderColor: '#A0A0A0'
   },
   filterContainer: {
-    flex: 0, 
+    flex: 1, 
     flexDirection: 'row', 
     alignItems: 'center', 
     justifyContent: 'center', 
@@ -148,6 +332,24 @@ const styles = EStyleSheet.create({
     borderColor: globalStyles.defaultColor,
     width: CURRENT_WIDTH - 150,
     marginRight: 20,
+  },
+  contentContainer: {
+    flex: 8,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 10,
+    paddingHorizontal: 10
+  },
+  generalIcon: {
+    marginRight:12
+  },
+  flatListView: {
+    flex: 1, 
+    alignItems: 'flex-start', 
+    justifyContent: 'center', 
+    width: CURRENT_WIDTH - 30, 
+    marginTop: 20
   }
 });
 

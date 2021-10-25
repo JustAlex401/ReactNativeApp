@@ -16,7 +16,8 @@ export default AccountsOverviewCard = ({handleNavigationToScreen}) => {
       fractionalPartOfTheAmount:'20',
       navigationScreenName:'CheckingScreen',
       routerParam:{subtitle: 'Main account (...0353)'},
-      isBottomDividerNeed: true
+      isBottomDividerNeed: true,
+      isChevronNeed: true
     },
     {
       id: faker.datatype.uuid(),
@@ -26,7 +27,8 @@ export default AccountsOverviewCard = ({handleNavigationToScreen}) => {
       fractionalPartOfTheAmount:'20',
       navigationScreenName:'SavingsScreen',
       routerParam:{subtitle: 'Buy a house (...4044)'},
-      isBottomDividerNeed: true
+      isBottomDividerNeed: true,
+      isChevronNeed: true
     },
     {
       id: faker.datatype.uuid(),
@@ -35,6 +37,8 @@ export default AccountsOverviewCard = ({handleNavigationToScreen}) => {
       amount:'500',
       fractionalPartOfTheAmount:'40',
       navigationScreenName:'Giving',
+      isChevronNeed: true,
+      isTitleIconNeed: true
     }
   ];
 
