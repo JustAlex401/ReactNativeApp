@@ -19,7 +19,10 @@ export default UserProfile = ({handleNavigationToScreen}) => {
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
-        <Image source={avatar ? {uri: avatar} : require('../../../assets/icons/oval.png')} style={styles.avatar}/>
+        <Image 
+          source={avatar ? {uri: avatar} : require('../../../assets/icons/oval.png')} 
+          style={avatar ? styles.avatar : styles.icon}
+        />
       </TouchableOpacity>
       <Modal
         animationType="fade"
@@ -30,7 +33,10 @@ export default UserProfile = ({handleNavigationToScreen}) => {
         <TouchableOpacity onPressOut={() => setModalVisible(false)} style={styles.modalView}>
           <View style={styles.modal}>
             <View style={styles.modalContentView}>
-              <TouchableOpacity onPress={() => handleNavigationToScreen('ProfileScreen')}>
+              <TouchableOpacity onPress={() => {
+                handleNavigationToScreen('ProfileScreen');
+                setModalVisible(false);
+              }}>
                 <CustomText>Profile</CustomText>
               </TouchableOpacity>
               <TouchableOpacity onPress={handleLogOut}>
@@ -46,6 +52,13 @@ export default UserProfile = ({handleNavigationToScreen}) => {
 
 const styles = EStyleSheet.create({
   avatar: {
+    width: 26,
+    height: 26,
+    borderRadius: 1000,
+    borderWidth: 1,
+    borderColor: 'white'
+  },
+  icon: {
     width: 26,
     height: 26,
     resizeMode: 'contain',
