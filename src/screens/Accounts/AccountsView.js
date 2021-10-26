@@ -95,7 +95,7 @@ const AccountView = ({handleNavigationToScreen, handleOpenDrawer}) => {
         <View style={styles.cardsContainer}>
           {
             cardActions.map((item, index) => (
-              <View key={index} style={styles.cardContainer}>
+              <View key={index} style={index === 1 ? [styles.cardContainer, styles.height] : styles.cardContainer}>
                 <CardAction 
                   item={item} 
                   index={index} 
@@ -157,17 +157,25 @@ const styles = EStyleSheet.create({
     justifyContent: 'flex-start'
   },
   cardContainer: {
+    flex: 0,
+    height: 90,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: 'white',
-    marginTop: 10
+    marginTop: 10,
+    borderRadius: 10,
   },
   cardFooter: {
     flex: 0, 
     flexDirection: 'row',
-    justifyContent: 'center', 
-    alignItems: 'center'
+    justifyContent: 'center',
+    marginTop: -10
   },
   cardFooterText: {
     color: '#32CD32'
+  },
+  height: {
+    height: 100
   }
 });
 

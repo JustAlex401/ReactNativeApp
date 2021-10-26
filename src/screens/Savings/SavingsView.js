@@ -73,7 +73,7 @@ const SavingsView = ({
       titleColorNeed: true,
       amountColorNeed: true,
       fractionalPartOfTheAmount:'65',
-      isBottomDividerNeed: true,
+      isBottomDividerNeed: false,
       isChevronNeed: false,
       isDisabled: true
     }
