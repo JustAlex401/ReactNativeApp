@@ -24,7 +24,8 @@ const AccountView = ({handleNavigationToScreen, handleOpenDrawer}) => {
       amount:'1,500',
       fractionalPartOfTheAmount:'20',
       navigationScreenName:'CheckingScreen',
-      routerParam:{subtitle: 'CheckingScreen'}
+      routerParam:{subtitle: 'Main account (...0353)'},
+      isChevronNeed: true
     },
     {
       id: faker.datatype.uuid(),
@@ -33,13 +34,14 @@ const AccountView = ({handleNavigationToScreen, handleOpenDrawer}) => {
       amount:'5,000',
       fractionalPartOfTheAmount:'20',
       navigationScreenName:'SavingsScreen',
-      routerParam:{subtitle: 'SavingsScreen'},
+      routerParam:{subtitle: 'Buy a house (...4044)'},
       footer: (
         <View style={styles.cardFooter}>
           <Icon name='triangle-up' type='entypo' color='#32CD32'/>
           <CustomText style={styles.cardFooterText}>Savings is up 3% from last mont</CustomText>
         </View> 
-      )
+      ),
+      isChevronNeed: true
     },
     {
       id: faker.datatype.uuid(),
@@ -48,6 +50,8 @@ const AccountView = ({handleNavigationToScreen, handleOpenDrawer}) => {
       amount:'500',
       fractionalPartOfTheAmount:'40',
       navigationScreenName:'Giving',
+      isChevronNeed: true,
+      isTitleIconNeed: true
     }
   ];
 
