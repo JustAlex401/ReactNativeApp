@@ -237,16 +237,18 @@ const CheckingView = ({
               return (
                 <View key={index} style={styles.flatListView}>
                   <CustomText>{item.title}</CustomText>
-                  {
-                    item.cards.map((item, index) => (
-                      <CardAction 
-                        item={item} 
-                        key={index} 
-                        index={index} 
-                        handleNavigationToScreen={handleNavigationToScreen}
-                      />
-                    ))
-                  }
+                  <View key={index} style={styles.viewContainer}>
+                    {
+                      item.cards.map((item, index) => (
+                          <CardAction 
+                            item={item} 
+                            key={index} 
+                            index={index} 
+                            handleNavigationToScreen={handleNavigationToScreen}
+                          />
+                      ))
+                    }
+                  </View>
                 </View>
               )
             }}
@@ -336,7 +338,7 @@ const styles = EStyleSheet.create({
   contentContainer: {
     flex: 8,
     flexDirection: 'column',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
     marginTop: 10,
     paddingHorizontal: 10
@@ -350,6 +352,15 @@ const styles = EStyleSheet.create({
     justifyContent: 'center', 
     width: CURRENT_WIDTH - 30, 
     marginTop: 20
+  },
+  viewContainer: {
+    flex: 0,
+    width: '96%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 8,
+    backgroundColor: 'white',
+    borderRadius: 10
   }
 });
 
