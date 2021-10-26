@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Image, Modal, SafeAreaView, TouchableOpacity, View} from 'react-native';
+import { Image, Modal, Platform, SafeAreaView, TouchableOpacity, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { useDispatch, useSelector } from 'react-redux';
 import CustomText from '../CustomText';
@@ -60,7 +60,7 @@ const styles = EStyleSheet.create({
     flex: 1, 
     justifyContent: 'flex-start', 
     alignItems: 'flex-end', 
-    marginTop: 50, 
+    marginTop: Platform.OS === 'ios' ? 100 : 50, 
     marginRight: 10
   },
   modal: {

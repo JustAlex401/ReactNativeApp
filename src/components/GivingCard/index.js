@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { Image, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { Image, Platform, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import Video from 'react-native-video';
 import EStyleSheet from 'react-native-extended-stylesheet';
@@ -9,10 +9,11 @@ import CustomText from '../CustomText';
 export default GivingCard = ({
   item, 
   index, 
+  last,
   videoPause
 }) => {
   return (
-    <View style={styles.rootContainer}>
+    <View style={last ===  index && Platform.OS === 'ios' ? [styles.rootContainer, styles.marginBottom] : styles.rootContainer}>
       <View style={styles.cardHeader}>
         <Image style={styles.titleIcon} source={require('../../../assets/icons/avatar.png')}/>
         <View style={styles.titleAndSubtitle}>
@@ -56,6 +57,9 @@ const styles = EStyleSheet.create({
     backgroundColor: 'white',
     marginTop: 14,
     height: 400,
+  },
+  marginBottom: {
+    marginBottom: 80
   },
   cardHeader: {
     flex: 1, 

@@ -75,6 +75,7 @@ const HomeView = ({
               key={index} 
               item={item} 
               index={index}
+              last={cardList.length - 1}
               videoPause={videoPause}
             />
           )

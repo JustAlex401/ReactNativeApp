@@ -6,7 +6,8 @@ import {
   Image,
   TextInput,
   Dimensions,
-  ScrollView
+  ScrollView,
+  Platform
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import faker from 'faker';
@@ -188,7 +189,7 @@ const styles = EStyleSheet.create({
     justifyContent: 'center'
   },
   titleContainer: {
-    flex: 5, 
+    flex: Platform.OS === 'ios' ? 4 : 5, 
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -234,7 +235,8 @@ const styles = EStyleSheet.create({
     flex: 5,
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: Platform.OS === 'ios' ? -60 : 0
   },
   filterByText:{ 
     color: 'white',
