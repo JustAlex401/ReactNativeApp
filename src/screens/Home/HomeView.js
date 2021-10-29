@@ -14,13 +14,15 @@ import globalStyles from '../../../assets/styles';
 import AccountsOverviewCard from '../../components/AccountsOverviewCard';
 import faker from 'faker';
 import GivingCard from '../../components/GivingCard';
+import { Viewport } from '@skele/components'
 
 const HomeView = ({
   handleOpenDrawer, 
   handleNavigationToScreen, 
   fullDate, 
   username,
-  videoPause
+  videoPause,
+  setVideoPaused
 }) => {
 
   const cardList = [
@@ -59,28 +61,32 @@ const HomeView = ({
           <UserProfile handleNavigationToScreen={handleNavigationToScreen}/>
         }
       />
-      <FlatList
-        style={styles.paddingHorizontal}
-        ListHeaderComponent={
-          <View>
-            <CustomText style={styles.dateText}>{fullDate.dayPart} {username} | {fullDate.month} {fullDate.day}, {fullDate.year}</CustomText>
-            <AccountsOverviewCard handleNavigationToScreen={handleNavigationToScreen}/>
-          </View>
-        }
-        data={cardList}
-        keyExtractor={item => item.id}
-        renderItem={({item, index}) => {
-          return (
-            <GivingCard
-              key={index} 
-              item={item} 
-              index={index}
-              last={cardList.length - 1}
-              videoPause={videoPause}
-            />
-          )
-        }}
-      />
+      <Viewport.Tracker>
+        <FlatList
+          style={styles.paddingHorizontal}
+          ListHeaderComponent={
+            <View>
+              <CustomText style={styles.dateText}>{fullDate.dayPart} {username} | {fullDate.month} {fullDate.day}, {fullDate.year}</CustomText>
+              <AccountsOverviewCard handleNavigationToScreen={handleNavigationToScreen}/>
+            </View>
+          }
+          data={cardList}
+          keyExtractor={item => item.id}
+          scrollEventThrottle={16}
+          renderItem={({item, index}) => {
+            return (
+              <GivingCard
+                key={index} 
+                item={item} 
+                index={index}
+                last={cardList.length - 1}
+                videoPause={videoPause}
+                setVideoPaused={setVideoPaused}
+              />
+            )
+          }}
+        />
+      </Viewport.Tracker>
     </SafeAreaView>
   );
 };

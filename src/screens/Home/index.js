@@ -48,6 +48,7 @@ const HomeScreen = (props) => {
       fullDate={fullDate}
       username={username}
       videoPause={videoPause}
+      setVideoPaused={setVideoPaused}
     />
   );
 };

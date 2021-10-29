@@ -1,17 +1,42 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Image, Platform, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import Video from 'react-native-video';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import globalStyles from '../../../assets/styles';
 import CustomText from '../CustomText';
+import { Viewport } from '@skele/components'
+const ViewportAwareVideo = Viewport.Aware(Video)
 
 export default GivingCard = ({
   item, 
   index, 
   last,
-  videoPause
+  videoPause,
+  setVideoPaused
 }) => {
+
+  const player = useRef();
+
+  useEffect(() => {
+    player.current = true;
+
+    return () => {
+      player.current = false;
+    };
+}, []);
+
+  const [videoMute, setVideoMute] = useState(true);
+  const [videoControl, setVideoControl] = useState(false);
+
+  const handleControl = () => {
+    setVideoControl(!videoControl);
+  }
+
+  const handleVideoMute = () => {
+    setVideoMute(!videoMute);
+  };
+
   return (
     <View style={last ===  index && Platform.OS === 'ios' ? [styles.rootContainer, styles.marginBottom] : styles.rootContainer}>
       <View style={styles.cardHeader}>
@@ -21,17 +46,33 @@ export default GivingCard = ({
           <CustomText style={styles.subtitle}>{item.subtitle}</CustomText>
         </View>
       </View>
-      <View style={styles.cardContent}>
-        <Video
+      <TouchableOpacity 
+        style={styles.cardContent}
+        onPress={handleControl}
+      >
+        <ViewportAwareVideo
           repeat
-          style={{width: '100%', height: '100%'}}
-          source={{uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"}}
-          paused={videoPause}
-          resizeMode='cover'
+          style={styles.video}
+          source={{uri: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"}}
+          // paused={videoPause}
           poster='https://lh3.googleusercontent.com/ZP-X9iqgIJFDvryltDu31NWOq8mMm60baIfAcaIlE0JsorRa5jFs2OrltfUIB7R9X-RF=s170'
-          muted={true}
+          muted={videoMute}
+          controls={videoControl}
+          preTriggerRatio={0.5}
+          onViewportEnter={() => setVideoPaused(false)}
+          onViewportLeave={() => setVideoPaused(true)}
+          innerRef={ref => ref = ref}
         />
-      </View>
+        <TouchableOpacity 
+          style={styles.voiceButton}
+          onPress={handleVideoMute}
+        >
+          <View>
+            <Image source={require('../../../assets/icons/play.png')}/>
+          </View>
+        </TouchableOpacity>
+      </TouchableOpacity>
+      
       <View style={styles.cardFooter}>
         <CustomText style={styles.footerMessage}>
           {item.message}
@@ -56,7 +97,7 @@ const styles = EStyleSheet.create({
     borderColor: globalStyles.defaultColor,
     backgroundColor: 'white',
     marginTop: 14,
-    height: 400,
+    height: 420,
   },
   marginBottom: {
     marginBottom: 80
@@ -120,5 +161,19 @@ const styles = EStyleSheet.create({
   titleIcon: {
     width: 40,
     height: 40
+  },
+  video: {
+    width: '100%', 
+    height: '100%'
+  },
+  voiceButton: {
+    height: 20,
+    left: 0,
+    right: 30,
+    bottom: 30,
+    position: 'absolute',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
   }
 });
