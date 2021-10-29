@@ -7,6 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import Navigator from './src/navigation/Navigator';
 import { store, persistor } from './src/redux/store';
+import SplashScreen from './src/components/SplashScreen';
 
 EStyleSheet.build({});
 
@@ -16,9 +17,11 @@ const App = () => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <SafeAreaProvider>
-          <NavigationContainer>
-            <Navigator/>
-          </NavigationContainer>
+          <SplashScreen>
+            <NavigationContainer>
+              <Navigator/>
+            </NavigationContainer>
+          </SplashScreen>
         </SafeAreaProvider>
       </PersistGate>
     </Provider>
