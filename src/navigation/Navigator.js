@@ -9,11 +9,9 @@ import useAuth from '../hooks/AuthHook';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 48 : 0;
-
 const Stack = createStackNavigator();
 
 const Navigator = () => {
-
   const isSignedIn = useAuth();
   
   return (
