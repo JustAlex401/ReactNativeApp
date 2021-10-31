@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Image, Platform, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import Video from 'react-native-video';
@@ -16,16 +16,6 @@ export default GivingCard = ({
   setVideoPaused
 }) => {
 
-  const player = useRef();
-
-  useEffect(() => {
-    player.current = true;
-
-    return () => {
-      player.current = false;
-    };
-}, []);
-
   const [videoMute, setVideoMute] = useState(true);
   const [videoControl, setVideoControl] = useState(false);
 
@@ -35,6 +25,14 @@ export default GivingCard = ({
 
   const handleVideoMute = () => {
     setVideoMute(!videoMute);
+  };
+
+  const playVideo = () => {
+    setVideoPaused(false);
+  };
+
+  const stopVideo = () => {
+    setVideoPaused(true);
   };
 
   return (
@@ -54,14 +52,13 @@ export default GivingCard = ({
           repeat
           style={styles.video}
           source={{uri: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"}}
-          // paused={videoPause}
+          paused={videoPause}
           poster='https://lh3.googleusercontent.com/ZP-X9iqgIJFDvryltDu31NWOq8mMm60baIfAcaIlE0JsorRa5jFs2OrltfUIB7R9X-RF=s170'
           muted={videoMute}
           controls={videoControl}
           preTriggerRatio={0.5}
-          onViewportEnter={() => setVideoPaused(false)}
-          onViewportLeave={() => setVideoPaused(true)}
-          innerRef={ref => ref = ref}
+          onViewportEnter={playVideo}
+          onViewportLeave={stopVideo}
         />
         <TouchableOpacity 
           style={styles.voiceButton}
@@ -97,7 +94,7 @@ const styles = EStyleSheet.create({
     borderColor: globalStyles.defaultColor,
     backgroundColor: 'white',
     marginTop: 14,
-    height: 420,
+    height: 420
   },
   marginBottom: {
     marginBottom: 80
