@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import {
   SafeAreaView,
   View,
@@ -26,16 +26,16 @@ const HomeView = ({
   const visibleVideoNumberRef = useRef();
   visibleVideoNumberRef.current = visibleVideoNumber;
 
-  const viewabilityConfigRef = React.useRef({
+  const viewabilityConfig = useCallback({
     waitForInteraction: true,
     itemVisiblePercentThreshold: 85
-  });
+  }, []);
 
-  const onViewableItemsChangedRef = React.useRef(({viewableItems, changed}) => {
+  const onViewableItemsChanged = useCallback(({viewableItems, changed}) => {
     if(viewableItems[0]?.isViewable){
       setVisibleVideoNumber(viewableItems[0]?.index);
     };
-  });
+  }, []);
 
   const cardList = [
     {
@@ -81,8 +81,8 @@ const HomeView = ({
             <AccountsOverviewCard handleNavigationToScreen={handleNavigationToScreen}/>
           </View>
         }
-        viewabilityConfig={viewabilityConfigRef.current}
-        onViewableItemsChanged={onViewableItemsChangedRef.current}
+        viewabilityConfig={viewabilityConfig}
+        onViewableItemsChanged={onViewableItemsChanged}
         data={cardList}
         keyExtractor={item => item.id}
         scrollEventThrottle={16}
