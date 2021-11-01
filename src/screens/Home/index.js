@@ -13,7 +13,6 @@ const HomeScreen = (props) => {
     year: '',
     dayPart: ''
   });
-  const [videoPause, setVideoPaused] = useState(false);
   const username = useSelector(state => state?.userReducer?.data?.name);
 
   useEffect(() => {
@@ -47,7 +46,6 @@ const HomeScreen = (props) => {
       handleNavigationToScreen={handleNavigationToScreen}
       fullDate={fullDate}
       username={username}
-      videoPause={videoPause}
     />
   );
 };

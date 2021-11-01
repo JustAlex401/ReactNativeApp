@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, Platform, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import Video from 'react-native-video';
@@ -10,8 +10,20 @@ export default GivingCard = ({
   item, 
   index, 
   last,
-  videoPause
+  visibleVideoNumber
 }) => {
+
+  const [videoMute, setVideoMute] = useState(true);
+  const [videoControl, setVideoControl] = useState(false);
+
+  const handleControl = () => {
+    setVideoControl(!videoControl);
+  }
+
+  const handleVideoMute = () => {
+    setVideoMute(!videoMute);
+  };
+
   return (
     <View style={last ===  index && Platform.OS === 'ios' ? [styles.rootContainer, styles.marginBottom] : styles.rootContainer}>
       <View style={styles.cardHeader}>
@@ -21,17 +33,29 @@ export default GivingCard = ({
           <CustomText style={styles.subtitle}>{item.subtitle}</CustomText>
         </View>
       </View>
-      <View style={styles.cardContent}>
+      <TouchableOpacity 
+        style={styles.cardContent}
+        onPress={handleControl}
+      >
         <Video
           repeat
-          style={{width: '100%', height: '100%'}}
-          source={{uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"}}
-          paused={videoPause}
-          resizeMode='cover'
+          style={styles.video}
+          source={{uri: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"}}
+          paused={visibleVideoNumber === index ? false : true}
           poster='https://lh3.googleusercontent.com/ZP-X9iqgIJFDvryltDu31NWOq8mMm60baIfAcaIlE0JsorRa5jFs2OrltfUIB7R9X-RF=s170'
-          muted={true}
+          muted={videoMute}
+          controls={videoControl}
         />
-      </View>
+        <TouchableOpacity 
+          style={styles.voiceButton}
+          onPress={handleVideoMute}
+        >
+          <View>
+            <Image source={require('../../../assets/icons/play.png')}/>
+          </View>
+        </TouchableOpacity>
+      </TouchableOpacity>
+      
       <View style={styles.cardFooter}>
         <CustomText style={styles.footerMessage}>
           {item.message}
@@ -56,7 +80,7 @@ const styles = EStyleSheet.create({
     borderColor: globalStyles.defaultColor,
     backgroundColor: 'white',
     marginTop: 14,
-    height: 400,
+    height: 420
   },
   marginBottom: {
     marginBottom: 80
@@ -120,5 +144,19 @@ const styles = EStyleSheet.create({
   titleIcon: {
     width: 40,
     height: 40
+  },
+  video: {
+    width: '100%', 
+    height: '100%'
+  },
+  voiceButton: {
+    height: 20,
+    left: 0,
+    right: 30,
+    bottom: 30,
+    position: 'absolute',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
   }
 });

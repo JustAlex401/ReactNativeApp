@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import {
   SafeAreaView,
   View,
@@ -19,9 +19,23 @@ const HomeView = ({
   handleOpenDrawer, 
   handleNavigationToScreen, 
   fullDate, 
-  username,
-  videoPause
+  username
 }) => {
+
+  const [visibleVideoNumber, setVisibleVideoNumber] = useState();
+  const visibleVideoNumberRef = useRef();
+  visibleVideoNumberRef.current = visibleVideoNumber;
+
+  const viewabilityConfig = useCallback({
+    waitForInteraction: true,
+    itemVisiblePercentThreshold: 85
+  }, []);
+
+  const onViewableItemsChanged = useCallback(({viewableItems, changed}) => {
+    if(viewableItems[0]?.isViewable){
+      setVisibleVideoNumber(viewableItems[0]?.index);
+    };
+  }, []);
 
   const cardList = [
     {
@@ -67,8 +81,11 @@ const HomeView = ({
             <AccountsOverviewCard handleNavigationToScreen={handleNavigationToScreen}/>
           </View>
         }
+        viewabilityConfig={viewabilityConfig}
+        onViewableItemsChanged={onViewableItemsChanged}
         data={cardList}
         keyExtractor={item => item.id}
+        scrollEventThrottle={16}
         renderItem={({item, index}) => {
           return (
             <GivingCard
@@ -76,7 +93,7 @@ const HomeView = ({
               item={item} 
               index={index}
               last={cardList.length - 1}
-              videoPause={videoPause}
+              visibleVideoNumber={visibleVideoNumberRef.current}
             />
           )
         }}
