@@ -5,15 +5,12 @@ import Video from 'react-native-video';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import globalStyles from '../../../assets/styles';
 import CustomText from '../CustomText';
-import { Viewport } from '@skele/components'
-const ViewportAwareVideo = Viewport.Aware(Video)
 
 export default GivingCard = ({
   item, 
   index, 
   last,
-  videoPause,
-  setVideoPaused
+  visibleVideoNumber
 }) => {
 
   const [videoMute, setVideoMute] = useState(true);
@@ -25,14 +22,6 @@ export default GivingCard = ({
 
   const handleVideoMute = () => {
     setVideoMute(!videoMute);
-  };
-
-  const playVideo = () => {
-    setVideoPaused(false);
-  };
-
-  const stopVideo = () => {
-    setVideoPaused(true);
   };
 
   return (
@@ -48,17 +37,14 @@ export default GivingCard = ({
         style={styles.cardContent}
         onPress={handleControl}
       >
-        <ViewportAwareVideo
+        <Video
           repeat
           style={styles.video}
           source={{uri: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"}}
-          paused={videoPause}
+          paused={visibleVideoNumber === index ? false : true}
           poster='https://lh3.googleusercontent.com/ZP-X9iqgIJFDvryltDu31NWOq8mMm60baIfAcaIlE0JsorRa5jFs2OrltfUIB7R9X-RF=s170'
           muted={videoMute}
           controls={videoControl}
-          preTriggerRatio={0.5}
-          onViewportEnter={playVideo}
-          onViewportLeave={stopVideo}
         />
         <TouchableOpacity 
           style={styles.voiceButton}
