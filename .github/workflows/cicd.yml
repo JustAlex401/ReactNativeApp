@@ -1,0 +1,46 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ci-cd]
+  pull_request:
+    branches: [ci-cd]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  distribute:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+
+      - name: Print
+        run: |
+          pwd
+          ruby -v
+          bundle -v
+
+      - name: Install node_modules
+        run: npm i
+
+      - name: Install bundle
+        run: |
+          cd android
+          gem install bundler:2.2.22
+          bundle install --jobs 4 --retry 3
+
+      - name: Distribute app with 🔥 App Distribution 🚀
+        run: |
+          cd android
+          ./gradlew clean
+          bundle exec fastlane distribute
