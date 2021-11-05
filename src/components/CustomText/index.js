@@ -16,6 +16,5 @@ export default CustomText = ({children, style}) => {
 
 const styles = EStyleSheet.create({
   text: {
-    fontFamily: 'SFUIDisplay-Bold'
   }
 });
