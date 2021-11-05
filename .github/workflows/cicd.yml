@@ -37,4 +37,6 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Distribute app with 🔥 App Distribution 🚀
-        run: bundle exec fastlane distribute
+        run: |
+          cd android
+          bundle exec fastlane distribute
