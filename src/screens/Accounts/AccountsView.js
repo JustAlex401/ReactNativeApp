@@ -169,6 +169,7 @@ const styles = EStyleSheet.create({
     flex: 0, 
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
     marginTop: -10
   },
   cardFooterText: {

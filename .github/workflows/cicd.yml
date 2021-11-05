@@ -24,12 +24,6 @@ jobs:
         with:
           ruby-version: '2.6'
 
-      - name: Print
-        run: |
-          pwd
-          ruby -v
-          bundle -v
-
       - name: Install node_modules
         run: npm i
 
