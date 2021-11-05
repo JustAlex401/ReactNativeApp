@@ -26,7 +26,7 @@ jobs:
 
       - name: Install bundle
         run: |
-          bundle config path ./android
+          bundle config path $(pwd)/android
           bundle install --jobs 4 --retry 3
 
       - name: Distribute app with 🔥 App Distribution 🚀
