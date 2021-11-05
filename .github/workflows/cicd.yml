@@ -33,7 +33,7 @@ jobs:
       - name: Install bundle
         run: |
           cd android
-          bundle update --bundler
+          gem install bundler:2.2.22
           bundle install --jobs 4 --retry 3
 
       - name: Distribute app with 🔥 App Distribution 🚀
