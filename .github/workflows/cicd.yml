@@ -30,12 +30,10 @@ jobs:
           ruby -v
           bundle -v
 
-      - name: Update preinstalled bundler
-        run: bundle update --bundler
-
       - name: Install bundle
         run: |
           cd android
+          bundle update --bundler
           bundle install --jobs 4 --retry 3
 
       - name: Distribute app with 🔥 App Distribution 🚀
