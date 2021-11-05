@@ -28,8 +28,7 @@ jobs:
         run: |
           pwd
           ruby -v
-          cd android
-          ls -las
+          bundle -v
 
       - name: Install bundle
         run: |
