@@ -30,6 +30,9 @@ jobs:
           ruby -v
           bundle -v
 
+      - name: Install node_modules
+        run: npm i
+
       - name: Install bundle
         run: |
           cd android
@@ -39,4 +42,5 @@ jobs:
       - name: Distribute app with 🔥 App Distribution 🚀
         run: |
           cd android
+          ./gradlew clean
           bundle exec fastlane distribute
