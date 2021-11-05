@@ -24,6 +24,11 @@ jobs:
         with:
           ruby-version: '2.6'
 
+      - name: Print
+        run: |
+          pwd
+          ruby -v
+
       - name: Install bundle
         run: |
           bundle config path $(pwd)/android
