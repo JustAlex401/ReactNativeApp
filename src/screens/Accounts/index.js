@@ -11,7 +11,7 @@ const AccountScreen = (props) => {
     props.navigation.openDrawer();
   };
 
-  return (
+  return ( 
     <AccountView handleNavigationToScreen={handleNavigationToScreen} handleOpenDrawer={handleOpenDrawer}/>
   );
 };
