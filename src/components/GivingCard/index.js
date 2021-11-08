@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Image, Platform, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import Video from 'react-native-video';
@@ -38,11 +38,11 @@ export default GivingCard = ({
         onPress={handleControl}
       >
         <Video
-          repeat
           style={styles.video}
           source={{uri: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"}}
           paused={visibleVideoNumber === index ? false : true}
-          poster='https://lh3.googleusercontent.com/ZP-X9iqgIJFDvryltDu31NWOq8mMm60baIfAcaIlE0JsorRa5jFs2OrltfUIB7R9X-RF=s170'
+          poster='https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg'
+          posterResizeMode='cover'
           muted={videoMute}
           controls={videoControl}
         />

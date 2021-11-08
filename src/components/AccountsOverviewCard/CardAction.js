@@ -60,7 +60,9 @@ const styles = EStyleSheet.create({
     alignItems: 'center'
   },
   rootWidth: {
-    width: '100%'
+    width: '100%',
+    height: 76,
+    justifyContent: 'center'
   },
   textColor: {
     color: '#32CD32'

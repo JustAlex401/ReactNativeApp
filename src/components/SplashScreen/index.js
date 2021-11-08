@@ -44,7 +44,7 @@ export default SplashScreen = ({children}) => {
 
   const opacity = {
     opacity: loadingProgress.interpolate({
-      inputRange: [0, 25, 50],
+      inputRange: [0, 15, 100],
       outputRange: [0, 0, 1],
       extrapolate: 'clamp'
     })

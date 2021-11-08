@@ -136,7 +136,7 @@ const styles = EStyleSheet.create({
     lineHeight: 30
   },
   titleView: {
-    width: 72,
+    width: 74,
     borderBottomWidth: 2,
     borderBottomColor: globalStyles.themeColor
   }, 
