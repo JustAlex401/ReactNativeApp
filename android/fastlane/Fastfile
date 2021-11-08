@@ -36,7 +36,7 @@ platform :android do
         task: "clean assembleRelease"
       )
       diawi(
-        token: "YVVzXPvbi5Ht12GKZLuxcRXKQccePopAEu84n7UhIw"
+        token: "5kci3veKOdupsBEPNP8QBMGtVurcZ8gwWQEdpAtwhX"
       )
   end
 
